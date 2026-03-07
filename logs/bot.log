@@ -1,0 +1,182 @@
+2026-03-06 20:57:15,441 | root                 | INFO     | Logging initialized [level=INFO]
+2026-03-06 20:57:16,112 | bot                  | INFO     | Starting bot polling...
+2026-03-06 20:57:16,112 | bot                  | INFO     | ══════════════════════════════════════════════════
+2026-03-06 20:57:16,112 | bot                  | INFO     |   🎫 Webook Pro Bot Starting...
+2026-03-06 20:57:16,113 | bot                  | INFO     | ══════════════════════════════════════════════════
+2026-03-06 20:57:16,140 | bot                  | INFO     | Database initialized at C:\Users\yussef makhlouf\Downloads\Ticket-Booker-Bot\Ticket-Booker-Bot\data/webook_pro.db
+2026-03-06 20:57:16,140 | browser              | INFO     | Initializing browser pool (max=5)...
+2026-03-06 20:57:18,148 | browser              | INFO     | Browser pool ready: 2 pre-warmed, 5 max
+2026-03-06 20:57:18,149 | bot                  | INFO     | Bot startup complete!
+2026-03-06 20:57:18,149 | aiogram.dispatcher   | INFO     | Start polling
+2026-03-06 20:57:22,317 | aiogram.dispatcher   | INFO     | Run polling for bot @Tzkartybook_bot id=8785687069 - 'Tzaker'
+2026-03-07 02:50:32,089 | aiogram.dispatcher   | ERROR    | Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+2026-03-07 02:50:32,111 | aiogram.dispatcher   | WARNING  | Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8785687069)
+2026-03-07 02:50:42,311 | aiogram.dispatcher   | INFO     | Connection established (tryings = 1, bot id = 8785687069)
+2026-03-07 02:50:49,648 | aiogram.dispatcher   | INFO     | Polling stopped
+2026-03-07 02:50:49,648 | bot                  | INFO     | Shutting down...
+2026-03-07 02:50:49,648 | browser              | INFO     | Shutting down browser pool...
+2026-03-07 02:50:49,791 | aiogram.dispatcher   | INFO     | Polling stopped for bot @Tzkartybook_bot id=8785687069 - 'Tzaker'
+2026-03-07 02:50:49,792 | aiogram.event        | INFO     | Update id=648318734 is not handled. Duration 7480 ms by bot id=8785687069
+2026-03-07 02:50:50,051 | bot                  | INFO     | Bot stopped by user
+2026-03-07 02:50:53,116 | root                 | INFO     | Logging initialized [level=INFO]
+2026-03-07 02:50:53,454 | bot                  | INFO     | Starting bot polling...
+2026-03-07 02:50:53,454 | bot                  | INFO     | ══════════════════════════════════════════════════
+2026-03-07 02:50:53,455 | bot                  | INFO     |   🎫 Webook Pro Bot Starting...
+2026-03-07 02:50:53,455 | bot                  | INFO     | ══════════════════════════════════════════════════
+2026-03-07 02:50:53,459 | bot                  | INFO     | Database initialized at C:\Users\yussef makhlouf\Downloads\Ticket-Booker-Bot\Ticket-Booker-Bot\data/webook_pro.db
+2026-03-07 02:50:53,459 | browser              | INFO     | Initializing browser pool (max=5)...
+2026-03-07 02:50:54,132 | browser              | INFO     | Browser pool ready: 2 pre-warmed, 5 max
+2026-03-07 02:50:54,132 | bot                  | INFO     | Bot startup complete!
+2026-03-07 02:50:54,133 | aiogram.dispatcher   | INFO     | Start polling
+2026-03-07 02:50:57,879 | aiogram.dispatcher   | INFO     | Run polling for bot @Tzkartybook_bot id=8785687069 - 'Tzaker'
+2026-03-07 02:52:32,743 | aiogram.event        | INFO     | Update id=648318735 is handled. Duration 290 ms by bot id=8785687069
+2026-03-07 02:52:44,865 | automation           | INFO     | Navigating to: https://webook.com/ar/events/rsl-al-ettifaq-vs-al-riyadh-123554
+2026-03-07 02:53:27,345 | automation           | ERROR    | Event data extraction error: Timeout 15000ms exceeded.
+2026-03-07 02:53:27,346 | automation           | INFO     | Extracted event 'unknown' in 15.02s
+2026-03-07 02:53:27,347 | booking              | INFO     | Booking prep done in 42.48s: event='?', logged_in=False
+2026-03-07 02:53:27,551 | aiogram.event        | INFO     | Update id=648318736 is handled. Duration 42812 ms by bot id=8785687069
+2026-03-07 02:53:35,215 | aiogram.event        | INFO     | Update id=648318737 is handled. Duration 263 ms by bot id=8785687069
+2026-03-07 02:53:40,310 | aiogram.event        | INFO     | Update id=648318738 is handled. Duration 115 ms by bot id=8785687069
+2026-03-07 02:53:49,330 | automation           | INFO     | Attempting login for yusse***...
+2026-03-07 02:54:23,705 | automation           | INFO     | Login submitted, waiting for redirect...
+2026-03-07 02:54:27,637 | automation           | INFO     | Login successful - redirected to: https://webook.com/ar
+2026-03-07 02:54:27,939 | aiogram.event        | INFO     | Update id=648318739 is handled. Duration 38792 ms by bot id=8785687069
+2026-03-07 02:54:33,634 | automation           | INFO     | Navigating to: https://webook.com/ar/events/rsl-al-ettifaq-vs-al-riyadh-123554/book
+2026-03-07 02:54:47,188 | automation           | INFO     | Waiting for seat map to load...
+2026-03-07 02:55:07,212 | automation           | INFO     | Found SeatCloud frame: https://chart.seatcloud.com/v1.0/index.html
+2026-03-07 02:55:11,250 | automation           | INFO     | Canvas ready: 974x853
+2026-03-07 02:55:11,468 | automation           | INFO     | SeatCloud screenshot saved: screenshots/seatmap_691194750_1772844911.png
+2026-03-07 02:56:10,558 | automation           | INFO     | Seat analysis: 0 sections found via canvas in 59.09s
+2026-03-07 02:56:11,268 | aiogram.event        | INFO     | Update id=648318740 is handled. Duration 97760 ms by bot id=8785687069
+2026-03-07 02:56:18,260 | automation           | INFO     | Navigating to: https://webook.com/ar/events/rsl-al-ettifaq-vs-al-riyadh-123554/book
+2026-03-07 02:56:30,785 | automation           | INFO     | Waiting for seat map to load...
+2026-03-07 02:56:30,790 | automation           | INFO     | Found SeatCloud frame: https://chart.seatcloud.com/v1.0/index.html
+2026-03-07 02:56:34,822 | automation           | INFO     | Canvas ready: 974x853
+2026-03-07 02:56:34,822 | automation           | INFO     | Searching for section: D9
+2026-03-07 02:57:33,852 | automation           | WARNING  | Section D9 not found in scan
+2026-03-07 02:57:33,852 | booking              | WARNING  | Booking attempt 1 failed: لم أتمكن من النقر على القسم D9
+2026-03-07 02:57:33,852 | booking              | INFO     | Retry 1/3 - waiting 1.0s...
+2026-03-07 02:57:34,854 | automation           | INFO     | Navigating to: https://webook.com/ar/events/rsl-al-ettifaq-vs-al-riyadh-123554/book
+2026-03-07 02:57:49,840 | automation           | INFO     | Waiting for seat map to load...
+2026-03-07 02:57:49,844 | automation           | INFO     | Found SeatCloud frame: https://chart.seatcloud.com/v1.0/index.html
+2026-03-07 02:57:53,871 | automation           | INFO     | Canvas ready: 974x853
+2026-03-07 02:57:53,871 | automation           | INFO     | Searching for section: D9
+2026-03-07 02:58:52,918 | automation           | WARNING  | Section D9 not found in scan
+2026-03-07 02:58:52,919 | booking              | WARNING  | Booking attempt 2 failed: لم أتمكن من النقر على القسم D9
+2026-03-07 02:58:52,919 | booking              | INFO     | Retry 2/3 - waiting 2.0s...
+2026-03-07 02:58:54,924 | automation           | INFO     | Navigating to: https://webook.com/ar/events/rsl-al-ettifaq-vs-al-riyadh-123554/book
+2026-03-07 02:59:07,240 | automation           | INFO     | Waiting for seat map to load...
+2026-03-07 02:59:27,266 | automation           | INFO     | Found SeatCloud frame: https://chart.seatcloud.com/v1.0/index.html
+2026-03-07 02:59:31,311 | automation           | INFO     | Canvas ready: 974x853
+2026-03-07 02:59:31,311 | automation           | INFO     | Searching for section: D9
+2026-03-07 03:00:30,305 | automation           | WARNING  | Section D9 not found in scan
+2026-03-07 03:00:30,306 | booking              | WARNING  | Booking attempt 3 failed: لم أتمكن من النقر على القسم D9
+2026-03-07 03:00:30,306 | booking              | INFO     | Retry 3/3 - waiting 4.0s...
+2026-03-07 03:00:34,312 | automation           | INFO     | Navigating to: https://webook.com/ar/events/rsl-al-ettifaq-vs-al-riyadh-123554/book
+2026-03-07 03:00:46,530 | automation           | INFO     | Waiting for seat map to load...
+2026-03-07 03:00:48,592 | automation           | INFO     | Found SeatCloud frame: https://chart.seatcloud.com/v1.0/index.html
+2026-03-07 03:00:52,634 | automation           | INFO     | Canvas ready: 974x853
+2026-03-07 03:00:52,635 | automation           | INFO     | Searching for section: D9
+2026-03-07 03:01:51,625 | automation           | WARNING  | Section D9 not found in scan
+2026-03-07 03:01:51,625 | booking              | WARNING  | Booking attempt 4 failed: لم أتمكن من النقر على القسم D9
+2026-03-07 03:01:51,709 | monitor              | WARNING  | Booking FAILURE: MAX_RETRIES (total failures: 1)
+2026-03-07 03:01:51,939 | aiogram.event        | INFO     | Update id=648318741 is handled. Duration 333786 ms by bot id=8785687069
+2026-03-07 03:11:53,893 | aiogram.dispatcher   | INFO     | Polling stopped
+2026-03-07 03:11:53,894 | bot                  | INFO     | Shutting down...
+2026-03-07 03:11:53,894 | browser              | INFO     | Shutting down browser pool...
+2026-03-07 03:11:54,072 | aiogram.dispatcher   | INFO     | Polling stopped for bot @Tzkartybook_bot id=8785687069 - 'Tzaker'
+2026-03-07 03:11:54,229 | bot                  | INFO     | Bot stopped by user
+2026-03-07 03:11:54,289 | asyncio              | ERROR    | Task was destroyed but it is pending!
+task: <Task cancelling name='Task-1' coro=<main() done, defined at C:\Users\yussef makhlouf\Downloads\Ticket-Booker-Bot\Ticket-Booker-Bot\main.py:69> wait_for=<_GatheringFuture pending cb=[Task.task_wakeup()]> cb=[gather.<locals>._done_callback() at C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.3312.0_x64__qbz5n2kfra8p0\Lib\asyncio\tasks.py:820]>
+2026-03-07 03:18:48,428 | root                 | INFO     | Logging initialized [level=INFO]
+2026-03-07 03:18:48,683 | bot                  | INFO     | Starting bot polling...
+2026-03-07 03:18:48,683 | bot                  | INFO     | ══════════════════════════════════════════════════
+2026-03-07 03:18:48,683 | bot                  | INFO     |   🎫 Webook Pro Bot Starting...
+2026-03-07 03:18:48,684 | bot                  | INFO     | ══════════════════════════════════════════════════
+2026-03-07 03:18:48,688 | bot                  | INFO     | Database initialized at C:\Users\yussef makhlouf\Downloads\Ticket-Booker-Bot\Ticket-Booker-Bot\data/webook_pro.db
+2026-03-07 03:18:48,688 | browser              | INFO     | Initializing browser pool (max=5)...
+2026-03-07 03:18:49,422 | browser              | INFO     | Browser pool ready: 2 pre-warmed, 5 max
+2026-03-07 03:18:49,422 | bot                  | INFO     | Bot startup complete!
+2026-03-07 03:18:49,422 | aiogram.dispatcher   | INFO     | Start polling
+2026-03-07 03:18:49,672 | aiogram.dispatcher   | INFO     | Run polling for bot @Tzkartybook_bot id=8785687069 - 'Tzaker'
+2026-03-07 03:19:01,473 | aiogram.event        | INFO     | Update id=648318744 is handled. Duration 974 ms by bot id=8785687069
+2026-03-07 03:19:08,984 | automation           | INFO     | Navigating to: https://webook.com/ar/events/rsl-al-ettifaq-vs-al-riyadh-123554
+2026-03-07 03:19:36,649 | automation           | INFO     | Dismissed popup: button:has-text("قبول الكل")
+2026-03-07 03:19:40,698 | automation           | INFO     | Extracted event: name='دوري روشن ٢٥/٢٦ - الاتفاق ضد الرياض', type='match', teams=['الاتفاق', 'الرياض'] in 3.03s
+2026-03-07 03:19:40,712 | booking              | INFO     | Booking prep done in 31.73s: event='دوري روشن ٢٥/٢٦ - الاتفاق ضد الرياض', logged_in=False
+2026-03-07 03:19:40,945 | aiogram.event        | INFO     | Update id=648318745 is handled. Duration 32071 ms by bot id=8785687069
+2026-03-07 03:19:50,536 | aiogram.event        | INFO     | Update id=648318746 is handled. Duration 621 ms by bot id=8785687069
+2026-03-07 03:19:59,980 | aiogram.event        | INFO     | Update id=648318747 is handled. Duration 157 ms by bot id=8785687069
+2026-03-07 03:20:04,913 | automation           | INFO     | Attempting login for yusse***...
+2026-03-07 03:20:41,739 | aiogram.dispatcher   | ERROR    | Failed to fetch updates - TelegramNetworkError: HTTP Client says - ClientOSError: [WinError 1236] The network connection was aborted by the local system
+2026-03-07 03:20:41,741 | aiogram.dispatcher   | WARNING  | Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8785687069)
+2026-03-07 03:20:53,010 | aiogram.dispatcher   | INFO     | Connection established (tryings = 1, bot id = 8785687069)
+2026-03-07 03:20:59,305 | automation           | INFO     | Login submitted, waiting for redirect...
+2026-03-07 03:21:02,610 | automation           | INFO     | Login successful - redirected to: https://webook.com/ar
+2026-03-07 03:21:02,978 | aiogram.event        | INFO     | Update id=648318748 is handled. Duration 58273 ms by bot id=8785687069
+2026-03-07 03:21:15,177 | aiogram.event        | INFO     | Update id=648318749 is handled. Duration 209 ms by bot id=8785687069
+2026-03-07 03:21:18,995 | automation           | INFO     | Navigating to: https://webook.com/ar/events/rsl-al-ettifaq-vs-al-riyadh-123554/book
+2026-03-07 03:21:23,565 | automation           | INFO     | Waiting for seat map to load...
+2026-03-07 03:21:36,857 | automation           | INFO     | Found SeatCloud frame: https://chart.seatcloud.com/v1.0/index.html
+2026-03-07 03:21:41,902 | automation           | INFO     | Canvas ready: 974x853
+2026-03-07 03:21:42,293 | automation           | INFO     | SeatCloud screenshot saved: screenshots/seatmap_691194750_1772846501.png
+2026-03-07 03:22:57,188 | automation           | INFO     | Seat analysis: 3 sections found via canvas in 74.89s
+2026-03-07 03:22:57,957 | aiogram.event        | INFO     | Update id=648318750 is handled. Duration 99331 ms by bot id=8785687069
+2026-03-07 03:24:12,512 | automation           | INFO     | Navigating to: https://webook.com/ar/events/rsl-al-ettifaq-vs-al-riyadh-123554/book
+2026-03-07 03:24:17,181 | automation           | INFO     | Selecting team: الاتفاق
+2026-03-07 03:24:17,269 | automation           | INFO     | Waiting for seat map to load...
+2026-03-07 03:24:37,290 | automation           | INFO     | Found SeatCloud frame: https://chart.seatcloud.com/v1.0/index.html
+2026-03-07 03:24:42,329 | automation           | INFO     | Canvas ready: 974x853
+2026-03-07 03:24:42,330 | automation           | INFO     | Searching for section: L
+2026-03-07 03:24:42,330 | automation           | INFO     | Scanning canvas 974x853 with grid 25x20 for section L...
+2026-03-07 03:24:43,104 | automation           | INFO     | Found L at (136, 21), tooltip='D110CAT 1 - L'
+2026-03-07 03:24:43,129 | automation           | INFO     | Clicked canvas at (136, 21)
+2026-03-07 03:26:17,922 | automation           | WARNING  | Section L not found in canvas scan
+2026-03-07 03:26:17,922 | booking              | WARNING  | Booking attempt 1 failed: لم أتمكن من النقر على القسم L
+2026-03-07 03:26:17,923 | booking              | INFO     | Retry 1/3 - waiting 1.0s...
+2026-03-07 03:26:18,929 | automation           | INFO     | Navigating to: https://webook.com/ar/events/rsl-al-ettifaq-vs-al-riyadh-123554/book
+2026-03-07 03:26:23,155 | automation           | INFO     | Selecting team: الاتفاق
+2026-03-07 03:26:23,205 | automation           | INFO     | Waiting for seat map to load...
+2026-03-07 03:26:23,967 | automation           | INFO     | Found SeatCloud frame: https://chart.seatcloud.com/v1.0/index.html
+2026-03-07 03:26:29,001 | automation           | INFO     | Canvas ready: 974x853
+2026-03-07 03:26:29,002 | automation           | INFO     | Searching for section: L
+2026-03-07 03:26:29,002 | automation           | INFO     | Scanning canvas 974x853 with grid 25x20 for section L...
+2026-03-07 03:26:29,747 | automation           | INFO     | Found L at (136, 21), tooltip='D110CAT 1 - L'
+2026-03-07 03:26:29,759 | automation           | INFO     | Clicked canvas at (136, 21)
+2026-03-07 03:28:03,134 | automation           | WARNING  | Section L not found in canvas scan
+2026-03-07 03:28:03,135 | booking              | WARNING  | Booking attempt 2 failed: لم أتمكن من النقر على القسم L
+2026-03-07 03:28:03,135 | booking              | INFO     | Retry 2/3 - waiting 2.0s...
+2026-03-07 03:28:05,149 | automation           | INFO     | Navigating to: https://webook.com/ar/events/rsl-al-ettifaq-vs-al-riyadh-123554/book
+2026-03-07 03:28:09,502 | automation           | INFO     | Selecting team: الاتفاق
+2026-03-07 03:28:09,626 | automation           | INFO     | Waiting for seat map to load...
+2026-03-07 03:28:09,971 | automation           | INFO     | Found SeatCloud frame: https://chart.seatcloud.com/v1.0/index.html
+2026-03-07 03:28:14,996 | automation           | INFO     | Canvas ready: 974x853
+2026-03-07 03:28:14,997 | automation           | INFO     | Searching for section: L
+2026-03-07 03:28:14,997 | automation           | INFO     | Scanning canvas 974x853 with grid 25x20 for section L...
+2026-03-07 03:28:15,759 | automation           | INFO     | Found L at (136, 21), tooltip='D110CAT 1 - L'
+2026-03-07 03:28:15,778 | automation           | INFO     | Clicked canvas at (136, 21)
+2026-03-07 03:29:49,138 | automation           | WARNING  | Section L not found in canvas scan
+2026-03-07 03:29:49,139 | booking              | WARNING  | Booking attempt 3 failed: لم أتمكن من النقر على القسم L
+2026-03-07 03:29:49,139 | booking              | INFO     | Retry 3/3 - waiting 4.0s...
+2026-03-07 03:29:53,144 | automation           | INFO     | Navigating to: https://webook.com/ar/events/rsl-al-ettifaq-vs-al-riyadh-123554/book
+2026-03-07 03:29:57,489 | automation           | INFO     | Selecting team: الاتفاق
+2026-03-07 03:29:57,537 | automation           | INFO     | Waiting for seat map to load...
+2026-03-07 03:29:58,209 | automation           | INFO     | Found SeatCloud frame: https://chart.seatcloud.com/v1.0/index.html
+2026-03-07 03:30:03,246 | automation           | INFO     | Canvas ready: 974x853
+2026-03-07 03:30:03,247 | automation           | INFO     | Searching for section: L
+2026-03-07 03:30:03,247 | automation           | INFO     | Scanning canvas 974x853 with grid 25x20 for section L...
+2026-03-07 03:30:03,956 | automation           | INFO     | Found L at (136, 21), tooltip='D110CAT 1 - L'
+2026-03-07 03:30:04,015 | automation           | INFO     | Clicked canvas at (136, 21)
+2026-03-07 03:31:37,511 | automation           | WARNING  | Section L not found in canvas scan
+2026-03-07 03:31:37,512 | booking              | WARNING  | Booking attempt 4 failed: لم أتمكن من النقر على القسم L
+2026-03-07 03:31:37,614 | monitor              | WARNING  | Booking FAILURE: MAX_RETRIES (total failures: 1)
+2026-03-07 03:31:37,889 | aiogram.event        | INFO     | Update id=648318751 is handled. Duration 445604 ms by bot id=8785687069
+2026-03-07 03:32:02,484 | aiogram.dispatcher   | INFO     | Polling stopped
+2026-03-07 03:32:02,485 | bot                  | INFO     | Shutting down...
+2026-03-07 03:32:02,485 | browser              | INFO     | Shutting down browser pool...
+2026-03-07 03:32:02,783 | browser              | INFO     | Browser pool shutdown. Stats: created=2, acquired=1, released=1
+2026-03-07 03:32:02,787 | bot                  | INFO     | Shutdown complete.
+2026-03-07 03:32:02,788 | aiogram.dispatcher   | ERROR    | Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2026-03-07 03:32:02,789 | aiogram.dispatcher   | WARNING  | Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8785687069)
+2026-03-07 03:32:02,868 | aiogram.dispatcher   | INFO     | Polling stopped for bot @Tzkartybook_bot id=8785687069 - 'Tzaker'
+2026-03-07 03:32:02,870 | bot                  | INFO     | Bot stopped by user

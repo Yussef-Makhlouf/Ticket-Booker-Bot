@@ -1,0 +1,120 @@
+# Dynamic CSS/XPath Selector Definitions for Webook.com
+# Each target has an ordered list of selectors (fallback chain)
+# Selectors are tried in order; first match wins
+
+login:
+  email_field:
+    - 'input[name="email"]'
+    - '[data-testid="auth_login_email_input"]'
+    - 'input[type="email"]'
+    - '#email'
+  password_field:
+    - 'input[name="password"]'
+    - '[data-testid="auth_login_password_input"]'
+    - 'input[type="password"]'
+    - '#password'
+  submit_button:
+    - 'button[id="email-login-button"]'
+    - '[data-testid="auth_login_submit_button"]'
+    - 'button[type="submit"]'
+  login_indicator:
+    - '[data-testid="header_login_button"]'
+    - 'a[href*="/login"]:visible'
+
+event_page:
+  event_name:
+    - 'h1'
+    - 'h2.text-heading-XL'
+    - '.event-title'
+    - '.text-heading-L'
+    - '[data-event-name]'
+  event_date:
+    - '.event-date'
+    - '[data-date]'
+    - '.date-time'
+  event_venue:
+    - '.venue-name'
+    - '[data-venue]'
+    - '.stadium-name'
+    - '.event-location'
+  event_image:
+    - '.event-image img'
+    - '[data-event-image]'
+    - '.hero-image img'
+    - 'meta[property="og:image"]'
+  price_element:
+    - '.price'
+    - '[data-price]'
+    - '.ticket-price'
+    - '.category-price'
+  team_selector:
+    - '[data-team]'
+    - '.team-option'
+    - '.team-card'
+    - '.team-name'
+
+booking_page:
+  book_button:
+    - 'button:has-text("احجز الآن")'
+    - 'button:has-text("Book Now")'
+    - 'a:has-text("احجز")'
+    - '[data-testid="book_button"]'
+  next_button:
+    - 'button:has-text("التالي")'
+    - 'button:has-text("Next")'
+    - 'button:has-text("استمر")'
+    - 'button:has-text("Continue")'
+  terms_checkbox:
+    - 'input[type="checkbox"]:not(:checked)'
+
+seat_map:
+  iframe:
+    - '#seats-iframe'
+    - 'iframe[src*="seatcloud"]'
+    - 'iframe[src*="chart"]'
+  canvas:
+    - '#canvas'
+    - 'canvas.seat-map'
+  tooltip:
+    - '#seatTooltip'
+    - '#lineTooltip'
+  confirm_button:
+    - 'button:has-text("انقر للإختيار")'
+    - 'button:has-text("اختيار")'
+    - 'button:has-text("Click to Select")'
+    - 'button:has-text("Select")'
+    - 'button:has-text("Choose")'
+    - '[class*="btn"]:has-text("اختيار")'
+
+cart:
+  increment_button:
+    - 'button:has-text("+")'
+    - '[aria-label*="add"]'
+    - '[aria-label*="زيادة"]'
+    - '[data-testid*="increment"]'
+    - '[class*="increment"]'
+    - '[class*="plus"]'
+  add_to_cart:
+    - 'button:has-text("أضف للسلة")'
+    - 'button:has-text("إضافة للسلة")'
+    - 'button:has-text("Add to Cart")'
+    - 'button:has-text("أضف")'
+    - 'button:has-text("احجز المقاعد")'
+    - '[data-testid*="add_to_cart"]'
+
+checkout:
+  checkout_button:
+    - 'button:has-text("الدفع")'
+    - 'button:has-text("إتمام الشراء")'
+    - 'button:has-text("Checkout")'
+    - 'button:has-text("التالي: الدفع")'
+    - '[data-testid*="checkout"]'
+    - '.checkout-btn'
+
+popups:
+  cookie_consent:
+    - 'button:has-text("قبول الكل")'
+    - 'button:has-text("Accept All")'
+    - 'form#cookie_consent_settings button[type="button"]'
+    - 'button:has-text("Accept")'
+    - '[data-testid="cookie_accept"]'

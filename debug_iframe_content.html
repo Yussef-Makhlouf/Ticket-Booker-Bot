@@ -1,0 +1,137 @@
+<html lang="en"><head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1, user-scalable=0">
+        <title>Seats Chart</title>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css?v=1772633866850" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://chart.seatcloud.com/v1.0/style.css?v=1772633866850">
+        <link rel="stylesheet" href="https://unpkg.com/quill-table-up@3.2.2/dist/table-creator.css?v=1772633866850">
+        <link rel="stylesheet" href="https://unpkg.com/quill-table-up@3.2.2/dist/index.css?v=1772633866850">
+        <link rel="stylesheet" href="https://cdn.quilljs.com/1.3.6/quill.snow.css?v=1772633866850">
+    <style>
+        .grecaptcha-badge {
+            visibility: hidden !important;
+            opacity: 0 !important;
+            display: none !important;
+        }
+    </style><script type="text/javascript" async="" charset="utf-8" src="https://www.gstatic.com/recaptcha/releases/QvLuXwupqtKMva7GIh5eGl3U/recaptcha__en.js" crossorigin="anonymous" integrity="sha384-jTIhI7HJPFGKjRS0um8GXc5TaoePlQfvy9Bkpdfl6RDdGT8t3YYKN63/UT4yLzmg"></script><script src="https://www.google.com/recaptcha/api.js?render=6Lf7x-8qAAAAACTG6gffMEWoXQoQhKS6UWTkG9cD" async=""></script></head>
+    <body>
+        <canvas id="canvas" tabindex="0" role="img" aria-label="Stadium seats map" class="" width="799" height="700" style="width: 799px; height: 699.57px;"></canvas>
+        <canvas id="minimap" style="visibility: hidden; width: 237px; height: 207.197px; display: block;" width="237" height="207"></canvas>
+
+        <!-- Check-in Stats Bar Container -->
+        <div id="stats-bar" style="display: none"></div>
+
+        <div id="controls">
+            <button id="preview-btn" class="fa fa-download" style="display: none"></button>
+            <button id="download-btn" class="fa fa-download" style="display: none"></button>
+            <button id="fullscreen-btn" class="fa fa-expand" style="display: none"></button>
+            <button id="square-selection-btn" class="far fa-edit" style="display: none"></button>
+            <button id="freehand-selection-btn" class="fa fa-pen-fancy" style="display: none"></button>
+            <button id="zoom-in" class="fa fa-search-plus" style="display: none"></button>
+            <button id="zoom-out" class="fa fa-search-minus" style="display: none"></button>
+        </div>
+        <div id="manager-buttons">
+            <button id="apply-btn" style="display: none">Apply Changes</button>
+            <button id="by-seat-btn" style="display: none">Book by Seat</button>
+            <button id="by-table-btn" style="display: none">Book by Table</button>
+            <button id="reset-btn" style="display: none">Reset to Defaults</button>
+        </div>
+        <button id="legend-collapse-btn" class="fa fa-chevron-right" style="display: none"></button>
+        <div id="label-toggle" class="no-scrollbar" style="display: none"></div>
+        <div id="legend" class="no-scrollbar" style="display: none"></div>
+        <div id="manager-config" class="no-scrollbar" style="display: none"></div>
+
+
+        <button id="zoom-reset" class="fa fa-search-minus" style="display: block;"></button>
+
+        <div id="floor-selection" class="no-scrollbar" style="display: none"></div>
+
+        <div id="seatTooltip" role="tooltip" aria-hidden="true" style="visibility: hidden"></div>
+
+        <div id="sectionTooltip" role="sectionTooltip" aria-hidden="true"></div>
+        <div id="zoneTooltip" role="zoneTooltip" aria-hidden="true"></div>
+        <div id="objectTooltip" role="objectTooltip" aria-hidden="true"></div>
+
+        <div id="chart-spinner" style="display: none; visibility: hidden;">
+            <div class="pulse-loader">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+
+        <div id="ga-popup">
+            <div class="popup-body" style="position: relative">
+                <h3 id="ga-title"></h3>
+                <h4 id="ga-available-seats" style="display: none"></h4>
+                <h4 id="ga-category"></h4>
+                <div id="ga-admin-status-container" hidden="">
+                    <div class="ga-status-label-container">
+                        <span class="ga-status-icon" id="ga-status-category-icon" style="letter-spacing: -4px; margin-left: 8px">●●</span>
+                        <span class="ga-status-label" id="ga-status-category-label"></span>
+                    </div>
+                    <div class="ga-status-label-container">
+                        <span class="ga-status-icon" id="ga-status-channel-icon" style="
+                                border: 1px solid #ccc;
+                                padding: 0.75px 1.5px;
+                                border-radius: 4px;
+                                font-size: 8px;
+                            ">●●●</span>
+                        <span class="ga-status-label" id="ga-status-channel-label"></span>
+                    </div>
+                    <div class="ga-status-label-container">
+                        <span class="ga-status-icon" id="ga-status-for-sale-icon">✕</span>
+                        <span class="ga-status-label" id="ga-status-for-sale-label"></span>
+                    </div>
+                    <div class="ga-status-label-container">
+                        <span class="ga-status-icon" id="ga-status-status-icon">✕</span>
+                        <span class="ga-status-label" id="ga-status-status-label"></span>
+                    </div>
+                    <div class="ga-status-label-container">
+                        <span class="ga-status-icon" id="ga-status-num-booked-icon">●</span>
+                        <span class="ga-status-label" id="ga-status-num-booked-label"></span>
+                    </div>
+                </div>
+                <div id="ga-checkboxes" class="ga-checkboxes" hidden="" style="display: flex; gap: 12px; margin-bottom: 10px; margin-top: 12px">
+                    <label for="ga-for-sale">
+                        <input type="radio" id="ga-for-sale" name="ga-sale-group" value="for-sale">
+                        For Sale
+                    </label>
+                    <label for="ga-not-for-sale">
+                        <input type="radio" id="ga-not-for-sale" name="ga-sale-group" value="not-for-sale">
+                        Not For Sale
+                    </label>
+                    <label for="ga-partially-not-for-sale">
+                        <input type="radio" id="ga-partially-not-for-sale" name="ga-sale-group" value="partially-not-for-sale">
+                        Partially Not For Sale
+                    </label>
+                </div>
+                <div class="ga-counter-container" id="ga-counter-container">
+                    <span id="ga-counter-label">Select Quantity</span>
+                    <div class="ga-counter" id="ga-counter">
+                        <button id="ga-decrease-seats" class="count-button">-</button>
+                        <input type="number" id="ga-seat-count" value="0" min="0" step="1">
+                        <button id="ga-increase-seats" class="count-button">+</button>
+                    </div>
+                </div>
+                <div style="display: flex; gap: 12px; justify-content: center; align-items: center">
+                    <button id="ga-cancel-popup">Cancel</button>
+                    <button id="ga-confirm-seats">Confirm</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="seats-view" style="visibility: hidden"></div>
+        <div id="viewer-close" style="display: none">
+            <i class="fas fa-times"></i>
+        </div>
+        <div id="viewer" style="display: none"></div>
+
+        <script src="https://chart.seatcloud.com/v1.0/bundle.js?v=1772633866850"></script>
+        <script>
+            let version = '0.9.19';
+        </script>
+    <script defer="" src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon="{&quot;version&quot;:&quot;2024.11.0&quot;,&quot;token&quot;:&quot;123f293d6f36402fa0f137c1924d6d8b&quot;,&quot;r&quot;:1,&quot;server_timing&quot;:{&quot;name&quot;:{&quot;cfCacheStatus&quot;:true,&quot;cfEdge&quot;:true,&quot;cfExtPri&quot;:true,&quot;cfL4&quot;:true,&quot;cfOrigin&quot;:true,&quot;cfSpeedBrain&quot;:true},&quot;location_startswith&quot;:null}}" crossorigin="anonymous"></script>
+
+
+<div><div class="grecaptcha-badge" data-style="bottomright" style="width: 256px; height: 60px; position: fixed; visibility: hidden; display: block; transition: right 0.3s; bottom: 14px; right: -186px; box-shadow: gray 0px 0px 5px; border-radius: 2px; overflow: hidden;"><div class="grecaptcha-logo"><iframe title="reCAPTCHA" width="256" height="60" role="presentation" name="a-k104ikugzvkg" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox allow-storage-access-by-user-activation" src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6Lf7x-8qAAAAACTG6gffMEWoXQoQhKS6UWTkG9cD&amp;co=aHR0cHM6Ly9jaGFydC5zZWF0Y2xvdWQuY29tOjQ0Mw..&amp;hl=en&amp;v=QvLuXwupqtKMva7GIh5eGl3U&amp;size=invisible&amp;anchor-ms=20000&amp;execute-ms=30000&amp;cb=4atf5yq4i4a5"></iframe></div><div class="grecaptcha-error"></div><textarea id="g-recaptcha-response-100000" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea></div><iframe style="display: none;"></iframe></div></body></html>
