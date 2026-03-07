@@ -214,24 +214,33 @@ class WebookAutomation:
         await asyncio.sleep(2)
 
         # Try increment buttons on the main page
-        for i in range(count - 1):
-            increment_selectors = [
-                'button:has-text("+")',
-                '[aria-label*="add"]',
-                '[aria-label*="زيادة"]',
-                '[data-testid*="increment"]',
-                '[class*="increment"]',
-                '[class*="plus"]',
-            ]
-            for sel in increment_selectors:
+        increment_selectors = [
+            'button:has-text("+")',
+            '[aria-label*="add"]',
+            '[aria-label*="زيادة"]',
+            '[data-testid*="increment"]',
+            '[class*="increment"]',
+            '[class*="plus"]',
+        ]
+        
+        # Find the working button first to avoid checking all selectors for every ticket
+        working_btn = None
+        for sel in increment_selectors:
+            try:
+                btn = await self.page.query_selector(sel)
+                if btn and await btn.is_visible():
+                    working_btn = btn
+                    break
+            except Exception:
+                pass
+                
+        if working_btn:
+            for i in range(count - 1):
                 try:
-                    btn = await self.page.query_selector(sel)
-                    if btn and await btn.is_visible():
-                        await btn.click(force=True)
-                        await asyncio.sleep(0.4)
-                        break
+                    await working_btn.click(force=True)
+                    await asyncio.sleep(0.05)
                 except Exception:
-                    continue
+                    pass
 
         # Try to add to cart
         add_selectors = [

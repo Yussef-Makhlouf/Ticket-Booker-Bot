@@ -232,7 +232,7 @@ class SeatMapper:
         try:
             canvas_locator = frame.locator("#canvas")
             await canvas_locator.hover(position={"x": cx, "y": cy}, force=True)
-            await asyncio.sleep(0.15)
+            await asyncio.sleep(0.02)  # Significantly reduced from 0.15s to speed up scanning
 
             # Read all possible tooltip elements
             tooltip = await frame.evaluate("""() => {
@@ -292,29 +292,39 @@ class SeatMapper:
 
         logger.info("Scanning canvas %dx%d with grid %dx%d for section %s...", cw, ch, steps_x, steps_y, target)
 
+        # Scan outward from center (spiral search) because sections are usually centered
+        center_row, center_col = steps_y / 2.0, steps_x / 2.0
+        search_coords = []
         for row in range(steps_y):
             for col in range(steps_x):
-                lx = cw * (col + 0.5) / steps_x
-                ly = ch * (row + 0.5) / steps_y
+                distance = (row - center_row)**2 + (col - center_col)**2
+                search_coords.append((distance, row, col))
+        
+        # Sort by distance to center
+        search_coords.sort(key=lambda x: x[0])
 
-                tooltip = await self._hover_canvas(frame, lx, ly)
-                if tooltip:
-                    parsed = self._parse_section_from_tooltip(tooltip)
-                    if parsed and parsed.upper() == target:
-                        if "لا توجد" in tooltip or "unavailable" in tooltip.lower() or "sold" in tooltip.lower():
-                            logger.warning("%s is unavailable at (%.0f,%.0f)", target, lx, ly)
-                            continue
+        for _, row, col in search_coords:
+            lx = cw * (col + 0.5) / steps_x
+            ly = ch * (row + 0.5) / steps_y
 
-                        logger.info("Found %s at (%.0f, %.0f), tooltip='%s'", target, lx, ly, tooltip)
-                        success = await self._click_and_confirm_section(frame, lx, ly, target)
+            tooltip = await self._hover_canvas(frame, lx, ly)
+            if tooltip:
+                parsed = self._parse_section_from_tooltip(tooltip)
+                if parsed and parsed.upper() == target:
+                    if "لا توجد" in tooltip or "unavailable" in tooltip.lower() or "sold" in tooltip.lower():
+                        logger.warning("%s is unavailable at (%.0f,%.0f)", target, lx, ly)
+                        continue
 
-                        if success:
-                            # Cache the coordinates
-                            if event_id:
-                                coords = await smart_cache.get_section_coordinates(event_id) or {}
-                                coords[target] = (lx, ly)
-                                await smart_cache.set_section_coordinates(event_id, coords)
-                            return True
+                    logger.info("Found %s at (%.0f, %.0f), tooltip='%s'", target, lx, ly, tooltip)
+                    success = await self._click_and_confirm_section(frame, lx, ly, target)
+
+                    if success:
+                        # Cache the coordinates
+                        if event_id:
+                            coords = await smart_cache.get_section_coordinates(event_id) or {}
+                            coords[target] = (lx, ly)
+                            await smart_cache.set_section_coordinates(event_id, coords)
+                        return True
 
         logger.warning("Section %s not found in canvas scan", target)
         return False
@@ -359,45 +369,59 @@ class SeatMapper:
             return False
 
     async def set_quantity_in_ga_popup(self, frame: Frame, quantity: int) -> bool:
-        """Set ticket quantity in the SeatCloud GA popup and confirm."""
+        """Set ticket quantity in the SeatCloud GA popup and confirm rapidly using JS."""
         try:
-            # Read current value
-            current = await frame.evaluate("""() => {
-                const input = document.getElementById('ga-seat-count');
-                return input ? parseInt(input.value) || 0 : 0;
-            }""")
+            logger.info("GA popup: target quantity=%d", quantity)
 
-            logger.info("GA popup: current quantity=%d, target=%d", current, quantity)
+            # Rapidly click buttons using isolated JS context evaluation to avoid python sleep latency
+            final = await frame.evaluate("""(targetQuantity) => {
+                return new Promise((resolve) => {
+                    const input = document.getElementById('ga-seat-count');
+                    const increaseBtn = document.getElementById('ga-increase-seats');
+                    const decreaseBtn = document.getElementById('ga-decrease-seats');
+                    
+                    if (!input) return resolve(0);
+                    
+                    let attempts = 0;
+                    const clickUntil = () => {
+                        let current = parseInt(input.value) || 0;
+                        if (current === targetQuantity || attempts > 25) {
+                            resolve(current);
+                            return;
+                        }
+                        
+                        const btn = current < targetQuantity ? increaseBtn : decreaseBtn;
+                        if (!btn || btn.disabled) {
+                            resolve(current);
+                            return;
+                        }
+                        
+                        btn.click();
+                        attempts++;
+                        setTimeout(clickUntil, 15);
+                    };
+                    
+                    clickUntil();
+                });
+            }""", quantity)
 
-            # Click increase button to reach desired quantity
-            increase_needed = quantity - current
-            for i in range(increase_needed):
-                try:
-                    await frame.click("#ga-increase-seats", force=True)
-                    await asyncio.sleep(0.3)
-                except Exception:
-                    break
-
-            # If we need to decrease
-            if increase_needed < 0:
-                for i in range(-increase_needed):
-                    try:
-                        await frame.click("#ga-decrease-seats", force=True)
-                        await asyncio.sleep(0.3)
-                    except Exception:
-                        break
-
-            # Verify quantity
-            final = await frame.evaluate("""() => {
-                const input = document.getElementById('ga-seat-count');
-                return input ? parseInt(input.value) || 0 : 0;
-            }""")
-            logger.info("GA popup: final quantity=%d", final)
+            logger.info("GA popup: final quantity evaluated as %d", final)
 
             # Click Confirm
-            await asyncio.sleep(0.5)
-            await frame.click("#ga-confirm-seats", force=True)
-            await asyncio.sleep(3)
+            await asyncio.sleep(0.1)
+            # Try JS click first for speed
+            await frame.evaluate("""() => { 
+                const b = document.getElementById('ga-confirm-seats'); 
+                if(b) b.click(); 
+            }""")
+            
+            # Fallback to playwright click just in case
+            try:
+                await frame.click("#ga-confirm-seats", force=True, timeout=1000)
+            except Exception:
+                pass
+                
+            await asyncio.sleep(1)
 
             logger.info("GA popup confirmed with %d tickets", final)
             return True
