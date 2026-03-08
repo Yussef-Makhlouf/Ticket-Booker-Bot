@@ -165,15 +165,15 @@ class BookingEngine:
 
         # Step 4: Click section
         with Timer("click_section") as t:
-            clicked = await automation.click_section(request.section, event_id)
-        tracker.add_step("اختيار القسم", t.elapsed, success=clicked)
+            section_status = await automation.click_section(request.section, event_id)
+        tracker.add_step("اختيار القسم", t.elapsed, success=(section_status != 'FAILED'))
 
-        if not clicked:
+        if section_status == 'FAILED':
             raise Exception(f"لم أتمكن من النقر على القسم {request.section}")
 
         # Step 5: Set ticket count + add to cart
         with Timer("tickets") as t:
-            added = await automation.set_ticket_count(request.section, request.tickets)
+            added = await automation.set_ticket_count(request.section, request.tickets, section_status)
         tracker.add_step("إضافة التذاكر", t.elapsed, success=added)
 
         # Step 6: Take screenshot

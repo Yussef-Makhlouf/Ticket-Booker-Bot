@@ -16,7 +16,7 @@ import os
 import time
 import re
 import logging
-from typing import Optional, List
+from typing import Optional, List, Dict
 from playwright.async_api import Page, Frame
 from services.anti_detect import human_delay
 from services.seat_mapper import SeatMapper
@@ -177,30 +177,40 @@ class WebookAutomation:
         seat_map = await self.seat_mapper.analyze_seat_structure()
         return seat_map.sections
 
-    async def click_section(self, section_name: str, event_id: str = "") -> bool:
-        """Click a section on the seat map."""
+    async def click_section(self, section_name: str, event_id: str = "") -> str:
+        """Click a section on the seat map. Returns status string."""
         return await self.seat_mapper.click_section(section_name, event_id)
+
+    async def get_all_sections_with_availability(self) -> dict:
+        """Get all sections with their availability status."""
+        return await self.seat_mapper.scan_all_sections_with_availability()
+
+    async def get_seats_in_section(self) -> list:
+        """Get individual seats in the currently selected section."""
+        frame = self.seat_mapper._get_seatcloud_frame()
+        return await self.seat_mapper.scan_seats_in_section(frame)
 
     async def take_seat_map_screenshot(self, user_id: int) -> str:
         """Take screenshot of seat map."""
         return await self.seat_mapper.take_screenshot(user_id)
 
-    # ── Ticket Quantity (via GA Popup in SeatCloud) ──
+    # ── Ticket Quantity (via GA Popup or Reserved Seating in SeatCloud) ──
 
-    async def set_ticket_count(self, section_name: str, count: int) -> bool:
-        """Set ticket quantity using the SeatCloud GA popup.
+    async def set_ticket_count(self, section_name: str, count: int, section_status: str = 'GA_POPUP') -> bool:
+        """Set ticket quantity using the SeatCloud GA popup or Reserved Seat clicking.
         
-        After clicking a section, the GA popup appears inside the iframe with:
-        - #ga-increase-seats / #ga-decrease-seats buttons
-        - #ga-seat-count input
-        - #ga-confirm-seats button
+        If section_status is 'ZOOMED', we assume it's individual reserved seating.
         """
         frame = self.seat_mapper._get_seatcloud_frame()
         if not frame:
             logger.warning("No SeatCloud frame found for ticket count")
             return await self._set_ticket_count_fallback(count)
 
-        # Check if GA popup is visible
+        if section_status == 'ZOOMED':
+            logger.info("Handling zoomed-in Reserved Seating for %d tickets", count)
+            return await self.seat_mapper.select_reserved_seats(frame, count)
+
+        # Handle GA_POPUP logic
         ga_visible = await self.seat_mapper._is_ga_popup_visible(frame)
         if ga_visible:
             logger.info("Setting quantity to %d in GA popup", count)

@@ -390,7 +390,10 @@ async def _proceed_to_map(message: types.Message, state: FSMContext):
         # Take screenshot
         screenshot_path = await automation.take_seat_map_screenshot(message.chat.id)
 
-        # Get sections
+        # Get all sections with availability status
+        sections_info = await automation.get_all_sections_with_availability()
+        
+        # Also get simple list for backward compatibility
         sections = await automation.get_available_sections()
 
         try:
@@ -425,6 +428,14 @@ async def _proceed_to_map(message: types.Message, state: FSMContext):
 
                 keyboard = InlineKeyboardMarkup(inline_keyboard=buttons)
                 await message.answer("أو اختر من القائمة:", reply_markup=keyboard)
+
+        # Store sections info for later use
+        if sections_info:
+            await state.update_data(sections_info=sections_info)
+            # Show available sections
+            avail = [s for s,i in sections_info.items() if i.get("status")=="available"]
+            if avail:
+                await message.answer(f"✅ <b>الأقسام المتاحة:</b> {', '.join(avail[:8])}", parse_mode="HTML")
 
         await state.set_state(BookingState.waiting_for_section)
 
