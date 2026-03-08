@@ -489,9 +489,9 @@ async def _select_section(message: types.Message, state: FSMContext, section: st
         automation = WebookAutomation(page)
         
         # Click the section
-        clicked = await automation.click_section(section)
+        section_status = await automation.click_section(section)
         
-        if not clicked:
+        if not section_status or section_status == 'FAILED':
             await processing_msg.delete()
             await message.answer(
                 f"❌ لم أتمكن من النقر على القسم <b>{section}</b>.\n"
@@ -501,7 +501,7 @@ async def _select_section(message: types.Message, state: FSMContext, section: st
             return  # Keep state waiting_for_section
         
         # Set ticket quantity and add to cart
-        added = await automation.get_ticket_count(section, tickets)
+        added = await automation.set_ticket_count(section, tickets, section_status)
         
         # Take screenshot of updated map / cart
         screenshot_path = await automation.take_seat_map_screenshot(message.chat.id)

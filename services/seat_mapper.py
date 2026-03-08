@@ -620,6 +620,8 @@ class SeatMapper:
         Scan the zoomed-in canvas to find and click individual reserved seats.
         Uses fast JS pixel analysis to find green seats as a priority,
         falling back to a spiral grid scan if needed.
+        
+        Enhanced with better green detection and direct clicking.
         """
         logger.info("Scanning for %d individual reserved seats...", required_count)
         
@@ -641,12 +643,12 @@ class SeatMapper:
         clicked_coords = set()
         canvas_locator = frame.locator("#canvas")
 
-        # STRATEGY 1: VERY FAST PIXEL ANALYSIS VIA JS
-        # Look for green pixels in the canvas
+        # STRATEGY 1: VERY FAST PIXEL ANALYSIS VIA JS - IMPROVED
+        # Look for green pixels in the canvas with better detection
         logger.info("Attempting fast JS pixel scan for available seats...")
         pixel_centers = []
         try:
-            # Inject JS to find green pixels and cluster them
+            # Inject JS to find green pixels and cluster them - improved thresholds
             js_script = """(args) => {
                 const canvas = document.getElementById('canvas');
                 if (!canvas) return {error: "No canvas"};
@@ -660,14 +662,16 @@ class SeatMapper:
                     
                     const points = [];
                     // Available seats are usually bright green in SeatCloud
+                    // Relaxed thresholds to catch more potential seats
                     for (let i = 0; i < data.length; i += 4) {
                         const r = data[i];
                         const g = data[i+1];
                         const b = data[i+2];
                         const a = data[i+3];
                         
-                        // Condition for the green seat color
-                        if (a > 200 && g > 150 && r < 100 && b < 100) {
+                        // Improved condition for the green seat color
+                        // Green should be dominant, red and blue should be low
+                        if (a > 180 && g > 120 && g > r * 1.2 && g > b * 0.8 && r < 120 && b < 120) {
                             const p = i / 4;
                             const x = p % w;
                             const y = Math.floor(p / w);
@@ -681,9 +685,9 @@ class SeatMapper:
                     
                     if (points.length === 0) return {centers: []};
                     
-                    // Simple clustering (group points within 15px CSS distance)
+                    // Simple clustering (group points within 20px CSS distance)
                     const centers = [];
-                    const threshold = 15;
+                    const threshold = 20;
                     
                     for (const p of points) {
                         let foundCluster = false;
@@ -704,8 +708,8 @@ class SeatMapper:
                         }
                     }
                     
-                    // Filter out noise (clusters with very few points)
-                    const validCenters = centers.filter(c => c.count > 10).map(c => ({x: c.x, y: c.y}));
+                    // Filter out noise (clusters with very few points) - lowered threshold
+                    const validCenters = centers.filter(c => c.count > 5).map(c => ({x: c.x, y: c.y}));
                     
                     // Sort centers: we want seats near the center of the viewport first
                     const midX = args.cw / 2;
@@ -732,47 +736,76 @@ class SeatMapper:
         except Exception as e:
             logger.warning("JS pixel scan failed: %s", e)
 
-        # Process the pixel centers if any
-        for center in pixel_centers:
+        # Process the pixel centers - try direct clicking without relying on tooltip
+        logger.info("Attempting to click on %d potential seat locations...", len(pixel_centers))
+        for idx, center in enumerate(pixel_centers):
             if selected_count >= required_count:
                 break
                 
             lx, ly = center['x'], center['y']
             
-            tooltip = await self._hover_canvas(frame, lx, ly)
-            if not tooltip:
+            # Check if too close to already clicked coords
+            is_too_close = False
+            for dx, dy in clicked_coords:
+                if abs(dx - lx) < 25 and abs(dy - ly) < 25:
+                    is_too_close = True
+                    break
+            if is_too_close:
                 continue
-                
-            tooltip_lower = tooltip.lower()
             
+            # Try to get tooltip first
+            tooltip = await self._hover_canvas(frame, lx, ly)
+            
+            # Determine if this looks like an available seat
             is_available = False
-            if "متاح" in tooltip or "انقر" in tooltip or "available" in tooltip_lower:
-                is_available = True
-            elif re.search(r'\d+\s*(ريال|sar|sar)', tooltip_lower):
-                is_available = True
-                
-            if "لا توجد" in tooltip or "unavailable" in tooltip_lower or "sold" in tooltip_lower or "إلغاء" in tooltip:
-                is_available = False
-                
+            tooltip_lower = tooltip.lower() if tooltip else ""
+            
+            # More flexible availability detection
+            if tooltip:
+                if "متاح" in tooltip or "انقر" in tooltip or "available" in tooltip_lower:
+                    is_available = True
+                elif re.search(r'\d+\s*(ريال|sar|sar)', tooltip_lower):
+                    is_available = True
+                    
+                if "لا توجد" in tooltip or "unavailable" in tooltip_lower or "sold" in tooltip_lower or "إلغاء" in tooltip or "غير متاح" in tooltip:
+                    is_available = False
+            
+            # Check if it looks like a seat (has row/seat info or price)
             is_seat = False
-            if is_available:
-                if re.search(r'\d+\s*(ريال|sar)', tooltip_lower) or "صف" in tooltip_lower or "مقعد" in tooltip_lower or "row" in tooltip_lower or "seat" in tooltip_lower:
+            if tooltip:
+                if re.search(r'\d+\s*(ريال|sar)', tooltip_lower) or "صف" in tooltip_lower or "مقعد" in tooltip_lower or "row" in tooltip_lower or "seat" in tooltip_lower or "الصف" in tooltip or "المقعد" in tooltip:
                     is_seat = True
             
-            if is_available:
-                logger.info("Found %s at (%.0f, %.0f), tooltip='%s'", "Seat" if is_seat else "Sub-block", lx, ly, tooltip.replace('\n', ' '))
+            # If it looks available OR we can't determine, try clicking
+            if is_available or not tooltip or is_seat:
                 try:
                     await canvas_locator.click(position={"x": lx, "y": ly}, force=True)
                     clicked_coords.add((lx, ly))
                     
-                    if is_seat:
+                    # Wait a bit for any popup to appear
+                    await asyncio.sleep(0.8)
+                    
+                    # Check if GA popup appeared
+                    ga_visible = await self._is_ga_popup_visible(frame)
+                    
+                    if ga_visible:
+                        # This was a sub-section, not individual seats - handle via popup
+                        logger.info("GA popup appeared - setting quantity through popup")
+                        set_qty = await self.set_quantity_in_ga_popup(frame, required_count - selected_count)
+                        if set_qty:
+                            selected_count = required_count
+                            return True
+                    elif is_seat or is_available:
+                        # Successfully clicked a seat!
                         selected_count += 1
-                        logger.info("Successfully clicked seat %d/%d", selected_count, required_count)
-                        await asyncio.sleep(0.5) 
+                        logger.info("Successfully clicked seat %d/%d at (%.0f, %.0f)", selected_count, required_count, lx, ly)
+                        
+                        # If we need more seats, continue clicking
+                        if selected_count < required_count:
+                            await asyncio.sleep(0.5)
                     else:
-                        logger.info("Clicked Sub-block. Zooming in deeper to find seats...")
-                        await asyncio.sleep(2) 
-                        return await self.select_reserved_seats(frame, required_count)
+                        # Clicked but no clear response - might be a sub-block
+                        logger.info("Clicked at (%.0f, %.0f) - no clear response, might be sub-block", lx, ly)
                         
                 except Exception as e:
                     logger.error("Failed to click at (%.0f, %.0f): %s", lx, ly, e)
@@ -781,11 +814,11 @@ class SeatMapper:
             logger.info("Successfully selected %d reserved seats.", selected_count)
             return True
 
-        # STRATEGY 2: FALLBACK TO SPIRAL SEARCH
+        # STRATEGY 2: FALLBACK TO SPIRAL SEARCH - IMPROVED
         if selected_count < required_count:
             logger.info("Pixel clustering insufficient. Falling back to spiral grid scan...")
             
-            steps_x, steps_y = 25, 25
+            steps_x, steps_y = 30, 30  # Increased grid for better coverage
             
             center_row, center_col = steps_y / 2.0, steps_x / 2.0
             search_coords = []
@@ -811,43 +844,41 @@ class SeatMapper:
                 if is_too_close:
                     continue
 
-                tooltip = await self._hover_canvas(frame, lx, ly)
-                if not tooltip:
-                    continue
+                # Try clicking directly without waiting for tooltip
+                try:
+                    await canvas_locator.click(position={"x": lx, "y": ly}, force=True)
+                    clicked_coords.add((lx, ly))
                     
-                tooltip_lower = tooltip.lower()
-                
-                is_available = False
-                if "متاح" in tooltip or "انقر" in tooltip or "available" in tooltip_lower:
-                    is_available = True
-                elif re.search(r'\d+\s*(ريال|sar|sar)', tooltip_lower):
-                    is_available = True
+                    # Wait for response
+                    await asyncio.sleep(0.8)
                     
-                if "لا توجد" in tooltip or "unavailable" in tooltip_lower or "sold" in tooltip_lower or "إلغاء" in tooltip:
-                    is_available = False
+                    # Check for GA popup
+                    ga_visible = await self._is_ga_popup_visible(frame)
                     
-                is_seat = False
-                if is_available:
-                    if re.search(r'\d+\s*(ريال|sar)', tooltip_lower) or "صف" in tooltip_lower or "مقعد" in tooltip_lower or "row" in tooltip_lower or "seat" in tooltip_lower:
-                        is_seat = True
-                
-                if is_available:
-                    logger.info("Found %s at (%.0f, %.0f), tooltip='%s'", "Seat" if is_seat else "Sub-block", lx, ly, tooltip.replace('\n', ' '))
-                    try:
-                        await canvas_locator.click(position={"x": lx, "y": ly}, force=True)
-                        clicked_coords.add((lx, ly))
+                    if ga_visible:
+                        logger.info("GA popup appeared in spiral search")
+                        set_qty = await self.set_quantity_in_ga_popup(frame, required_count - selected_count)
+                        if set_qty:
+                            selected_count = required_count
+                            return True
+                    else:
+                        # Check tooltip after clicking
+                        tooltip = await self._hover_canvas(frame, lx, ly)
+                        tooltip_lower = tooltip.lower() if tooltip else ""
+                        
+                        is_seat = False
+                        if tooltip:
+                            if re.search(r'\d+\s*(ريال|sar)', tooltip_lower) or "صف" in tooltip_lower or "مقعد" in tooltip_lower or "row" in tooltip_lower or "seat" in tooltip_lower or "الصف" in tooltip or "المقعد" in tooltip:
+                                is_seat = True
                         
                         if is_seat:
                             selected_count += 1
-                            logger.info("Successfully clicked seat %d/%d", selected_count, required_count)
-                            await asyncio.sleep(0.5) 
+                            logger.info("Spiral search: clicked seat %d/%d at (%.0f, %.0f)", selected_count, required_count, lx, ly)
                         else:
-                            logger.info("Clicked Sub-block. Zooming in deeper to find seats...")
-                            await asyncio.sleep(2) 
-                            return await self.select_reserved_seats(frame, required_count)
+                            logger.info("Spiral search: clicked at (%.0f, %.0f) - no seat detected", lx, ly)
                             
-                    except Exception as e:
-                        logger.error("Failed to click at (%.0f, %.0f): %s", lx, ly, e)
+                except Exception as e:
+                    logger.error("Spiral: Failed to click at (%.0f, %.0f): %s", lx, ly, e)
 
         if selected_count >= required_count:
             logger.info("Successfully selected %d reserved seats.", selected_count)

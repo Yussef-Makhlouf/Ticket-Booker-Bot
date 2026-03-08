@@ -3820,3 +3820,339 @@ task: <Task cancelling name='Task-1' coro=<main() done, defined at C:\Users\yuss
 2026-03-08 04:14:05,097 | automation           | INFO     | Section D10: AVAILABLE - D10 10 CAT 1 - R
 2026-03-08 04:14:05,469 | automation           | INFO     | Section D11: AVAILABLE - D11 10 CAT 1 - R
 2026-03-08 04:14:12,520 | automation           | INFO     | Section C7: UNAVAILABLE - C7 لا توجد مقاعد متاحة
+2026-03-08 04:14:17,520 | automation           | INFO     | Section E1: UNAVAILABLE - E1 لا توجد مقاعد متاحة
+2026-03-08 04:14:34,679 | automation           | INFO     | Section C6: UNAVAILABLE - C6 لا توجد مقاعد متاحة
+2026-03-08 04:14:39,802 | automation           | INFO     | Section E2: UNAVAILABLE - E2 لا توجد مقاعد متاحة
+2026-03-08 04:14:40,382 | automation           | INFO     | Section C5: UNAVAILABLE - C5 لا توجد مقاعد متاحة
+2026-03-08 04:14:45,694 | automation           | INFO     | Section E3: UNAVAILABLE - E3 لا توجد مقاعد متاحة
+2026-03-08 04:14:52,352 | automation           | INFO     | Section C4: UNAVAILABLE - C4 لا توجد مقاعد متاحة
+2026-03-08 04:14:57,836 | automation           | INFO     | Section E4: UNAVAILABLE - E4 لا توجد مقاعد متاحة
+2026-03-08 04:15:09,716 | automation           | INFO     | Section C3: UNAVAILABLE - C3 لا توجد مقاعد متاحة
+2026-03-08 04:15:14,620 | automation           | INFO     | Section E5: UNAVAILABLE - E5 لا توجد مقاعد متاحة
+2026-03-08 04:15:20,724 | automation           | INFO     | Section C2: UNAVAILABLE - C2 لا توجد مقاعد متاحة
+2026-03-08 04:15:25,726 | automation           | INFO     | Section E6: UNAVAILABLE - E6 لا توجد مقاعد متاحة
+2026-03-08 04:15:31,883 | automation           | INFO     | Section C1: UNAVAILABLE - C1 لا توجد مقاعد متاحة
+2026-03-08 04:15:37,025 | automation           | INFO     | Section E7: UNAVAILABLE - E7 لا توجد مقاعد متاحة
+2026-03-08 04:16:00,369 | automation           | INFO     | Section B4: UNAVAILABLE - B4 لا توجد مقاعد متاحة
+2026-03-08 04:16:00,555 | automation           | INFO     | Section B3: UNAVAILABLE - B3 لا توجد مقاعد متاحة
+2026-03-08 04:16:01,117 | automation           | INFO     | Section B2: UNAVAILABLE - B2 لا توجد مقاعد متاحة
+2026-03-08 04:16:01,673 | automation           | INFO     | Section B1: UNAVAILABLE - B1 لا توجد مقاعد متاحة
+2026-03-08 04:16:02,391 | automation           | INFO     | Section VIP: UNAVAILABLE - VIP لا توجد مقاعد متاحة
+2026-03-08 04:16:02,768 | automation           | INFO     | Section A4: UNAVAILABLE - A4 لا توجد مقاعد متاحة
+2026-03-08 04:16:03,528 | automation           | INFO     | Section A3: UNAVAILABLE - A3 لا توجد مقاعد متاحة
+2026-03-08 04:16:04,082 | automation           | INFO     | Section A2: UNAVAILABLE - A2 لا توجد مقاعد متاحة
+2026-03-08 04:16:04,637 | automation           | INFO     | Section A1: UNAVAILABLE - A1 لا توجد مقاعد متاحة
+2026-03-08 04:16:13,589 | automation           | INFO     | Section VVIP: UNAVAILABLE - VVIP لا توجد مقاعد متاحة
+2026-03-08 04:16:22,123 | automation           | INFO     | Found 35 unique sections
+2026-03-08 04:17:35,999 | automation           | INFO     | Seat analysis: 34 sections found via canvas in 73.88s
+2026-03-08 04:17:36,695 | aiogram.event        | INFO     | Update id=648318866 is handled. Duration 230877 ms by bot id=8785687069
+2026-03-08 04:17:56,131 | automation           | INFO     | Navigating to: https://webook.com/ar/events/rsl-al-ettifaq-vs-al-riyadh-123554/book
+2026-03-08 04:18:00,586 | automation           | INFO     | Selecting team: الاتفاق
+2026-03-08 04:18:00,655 | automation           | INFO     | Waiting for seat map to load...
+2026-03-08 04:18:06,724 | automation           | INFO     | Found SeatCloud frame: https://chart.seatcloud.com/v1.0/index.html
+2026-03-08 04:18:11,763 | automation           | INFO     | Canvas ready: 974x853
+2026-03-08 04:18:11,764 | automation           | INFO     | Searching for section: D11
+2026-03-08 04:18:11,764 | automation           | INFO     | Scanning canvas 974x853 with grid 25x20 for section D11...
+2026-03-08 04:18:41,139 | automation           | INFO     | Scanned (487, 746) -> 'VIP لا توجد مقاعد متاحة'
+2026-03-08 04:18:41,330 | automation           | INFO     | Scanned (526, 746) -> 'VIP لا توجد مقاعد متاحة'
+2026-03-08 04:18:42,644 | automation           | INFO     | Scanned (448, 746) -> 'VIP لا توجد مقاعد متاحة'
+2026-03-08 04:18:42,833 | automation           | INFO     | Scanned (565, 746) -> 'A4 لا توجد مقاعد متاحة'
+2026-03-08 04:18:44,165 | automation           | INFO     | Scanned (409, 746) -> 'B1 لا توجد مقاعد متاحة'
+2026-03-08 04:18:44,370 | automation           | INFO     | Scanned (604, 746) -> 'A4 لا توجد مقاعد متاحة'
+2026-03-08 04:18:48,288 | automation           | INFO     | Scanned (370, 746) -> 'B1 لا توجد مقاعد متاحة'
+2026-03-08 04:18:48,472 | automation           | INFO     | Scanned (643, 746) -> 'A4 لا توجد مقاعد متاحة'
+2026-03-08 04:18:48,840 | automation           | INFO     | Scanned (526, 107) -> 'D7 لا توجد مقاعد متاحة'
+2026-03-08 04:18:49,029 | automation           | INFO     | Scanned (487, 789) -> 'VVIP لا توجد مقاعد متاحة'
+2026-03-08 04:18:49,212 | automation           | INFO     | Scanned (526, 789) -> 'VVIP لا توجد مقاعد متاحة'
+2026-03-08 04:18:50,129 | automation           | INFO     | Scanned (448, 107) -> 'D5 لا توجد مقاعد متاحة'
+2026-03-08 04:18:50,333 | automation           | INFO     | Scanned (565, 107) -> 'D7 لا توجد مقاعد متاحة'
+2026-03-08 04:18:51,247 | automation           | INFO     | Scanned (448, 789) -> 'VVIP لا توجد مقاعد متاحة'
+2026-03-08 04:18:51,420 | automation           | INFO     | Scanned (565, 789) -> 'A4 لا توجد مقاعد متاحة'
+2026-03-08 04:18:52,724 | automation           | INFO     | Scanned (331, 746) -> 'B1 لا توجد مقاعد متاحة'
+2026-03-08 04:18:52,912 | automation           | INFO     | Scanned (682, 746) -> 'A3 لا توجد مقاعد متاحة'
+2026-03-08 04:18:53,101 | automation           | INFO     | Scanned (409, 107) -> 'D5 لا توجد مقاعد متاحة'
+2026-03-08 04:18:53,303 | automation           | INFO     | Scanned (604, 107) -> 'D8 لا توجد مقاعد متاحة'
+2026-03-08 04:18:53,501 | automation           | INFO     | Scanned (409, 789) -> 'B1 لا توجد مقاعد متاحة'
+2026-03-08 04:18:53,688 | automation           | INFO     | Scanned (604, 789) -> 'A4 لا توجد مقاعد متاحة'
+2026-03-08 04:18:55,787 | automation           | INFO     | Scanned (370, 107) -> 'D4 لا توجد مقاعد متاحة'
+2026-03-08 04:18:55,976 | automation           | INFO     | Scanned (643, 107) -> 'D8 لا توجد مقاعد متاحة'
+2026-03-08 04:18:56,875 | automation           | INFO     | Scanned (370, 789) -> 'B1 لا توجد مقاعد متاحة'
+2026-03-08 04:18:57,061 | automation           | INFO     | Scanned (643, 789) -> 'A4 لا توجد مقاعد متاحة'
+2026-03-08 04:18:58,434 | automation           | INFO     | Scanned (292, 746) -> 'B2 لا توجد مقاعد متاحة'
+2026-03-08 04:18:58,634 | automation           | INFO     | Scanned (721, 746) -> 'A3 لا توجد مقاعد متاحة'
+2026-03-08 04:18:58,820 | automation           | INFO     | Scanned (487, 64) -> 'D6 لا توجد مقاعد متاحة'
+2026-03-08 04:18:59,005 | automation           | INFO     | Scanned (526, 64) -> 'D7 لا توجد مقاعد متاحة'
+2026-03-08 04:19:00,712 | automation           | INFO     | Scanned (487, 832) -> 'VIP Platform لا توجد مقاعد متاحة'
+2026-03-08 04:19:00,901 | automation           | INFO     | Scanned (526, 832) -> 'VIP Platform لا توجد مقاعد متاحة'
+2026-03-08 04:19:01,088 | automation           | INFO     | Scanned (448, 64) -> 'D5 لا توجد مقاعد متاحة'
+2026-03-08 04:19:01,274 | automation           | INFO     | Scanned (565, 64) -> 'D7 لا توجد مقاعد متاحة'
+2026-03-08 04:19:01,453 | automation           | INFO     | Scanned (448, 832) -> 'VIP Platform لا توجد مقاعد متاحة'
+2026-03-08 04:19:01,643 | automation           | INFO     | Scanned (565, 832) -> 'A4 لا توجد مقاعد متاحة'
+2026-03-08 04:19:01,831 | automation           | INFO     | Scanned (331, 107) -> 'D4 لا توجد مقاعد متاحة'
+2026-03-08 04:19:02,031 | automation           | INFO     | Scanned (682, 107) -> 'D9 10 CAT 1 - R'
+2026-03-08 04:19:02,214 | automation           | INFO     | Scanned (331, 789) -> 'B1 لا توجد مقاعد متاحة'
+2026-03-08 04:19:02,384 | automation           | INFO     | Scanned (682, 789) -> 'A3 لا توجد مقاعد متاحة'
+2026-03-08 04:19:02,572 | automation           | INFO     | Scanned (409, 64) -> 'D5 لا توجد مقاعد متاحة'
+2026-03-08 04:19:02,758 | automation           | INFO     | Scanned (604, 64) -> 'D8 لا توجد مقاعد متاحة'
+2026-03-08 04:19:02,947 | automation           | INFO     | Scanned (409, 832) -> 'B1 لا توجد مقاعد متاحة'
+2026-03-08 04:19:03,132 | automation           | INFO     | Scanned (604, 832) -> 'A4 لا توجد مقاعد متاحة'
+2026-03-08 04:19:04,249 | automation           | INFO     | Scanned (877, 448) -> 'E5 لا توجد مقاعد متاحة'
+2026-03-08 04:19:05,029 | automation           | INFO     | Scanned (877, 405) -> 'E5 لا توجد مقاعد متاحة'
+2026-03-08 04:19:05,406 | automation           | INFO     | Scanned (877, 490) -> 'E6 لا توجد مقاعد متاحة'
+2026-03-08 04:19:05,591 | automation           | INFO     | Scanned (253, 746) -> 'B2 لا توجد مقاعد متاحة'
+2026-03-08 04:19:05,783 | automation           | INFO     | Scanned (760, 746) -> 'A2 لا توجد مقاعد متاحة'
+2026-03-08 04:19:06,734 | automation           | INFO     | Scanned (370, 64) -> 'D4 لا توجد مقاعد متاحة'
+2026-03-08 04:19:06,935 | automation           | INFO     | Scanned (643, 64) -> 'D8 لا توجد مقاعد متاحة'
+2026-03-08 04:19:07,136 | automation           | INFO     | Scanned (370, 832) -> 'B1 لا توجد مقاعد متاحة'
+2026-03-08 04:19:07,324 | automation           | INFO     | Scanned (643, 832) -> 'A4 لا توجد مقاعد متاحة'
+2026-03-08 04:19:07,510 | automation           | INFO     | Scanned (292, 107) -> 'D3 10 CAT 1 - L'
+2026-03-08 04:19:07,692 | automation           | INFO     | Scanned (721, 107) -> 'D9 10 CAT 1 - R'
+2026-03-08 04:19:08,080 | automation           | INFO     | Scanned (877, 363) -> 'E4 لا توجد مقاعد متاحة'
+2026-03-08 04:19:08,443 | automation           | INFO     | Scanned (877, 533) -> 'E6 لا توجد مقاعد متاحة'
+2026-03-08 04:19:08,630 | automation           | INFO     | Scanned (292, 789) -> 'B2 لا توجد مقاعد متاحة'
+2026-03-08 04:19:08,829 | automation           | INFO     | Scanned (721, 789) -> 'A3 لا توجد مقاعد متاحة'
+2026-03-08 04:19:09,999 | automation           | INFO     | Scanned (877, 320) -> 'E4 لا توجد مقاعد متاحة'
+2026-03-08 04:19:10,402 | automation           | INFO     | Scanned (877, 576) -> 'Accessibility - E Accessibility غير متاح'
+2026-03-08 04:19:10,606 | automation           | INFO     | Scanned (487, 21) -> 'D6 لا توجد مقاعد متاحة'
+2026-03-08 04:19:10,793 | automation           | INFO     | Scanned (526, 21) -> 'D7 لا توجد مقاعد متاحة'
+2026-03-08 04:19:10,991 | automation           | INFO     | Scanned (331, 64) -> 'D4 لا توجد مقاعد متاحة'
+2026-03-08 04:19:11,174 | automation           | INFO     | Scanned (682, 64) -> 'D9 10 CAT 1 - R'
+2026-03-08 04:19:11,367 | automation           | INFO     | Scanned (331, 832) -> 'B1 لا توجد مقاعد متاحة'
+2026-03-08 04:19:11,567 | automation           | INFO     | Scanned (682, 832) -> 'A3 لا توجد مقاعد متاحة'
+2026-03-08 04:19:11,769 | automation           | INFO     | Scanned (448, 21) -> 'D5 لا توجد مقاعد متاحة'
+2026-03-08 04:19:11,956 | automation           | INFO     | Scanned (565, 21) -> 'D7 لا توجد مقاعد متاحة'
+2026-03-08 04:19:12,513 | automation           | INFO     | Scanned (214, 746) -> 'B3 لا توجد مقاعد متاحة'
+2026-03-08 04:19:12,687 | automation           | INFO     | Scanned (799, 746) -> 'A2 لا توجد مقاعد متاحة'
+2026-03-08 04:19:12,875 | automation           | INFO     | Scanned (409, 21) -> 'D5 لا توجد مقاعد متاحة'
+2026-03-08 04:19:13,062 | automation           | INFO     | Scanned (604, 21) -> 'D8 لا توجد مقاعد متاحة'
+2026-03-08 04:19:13,248 | automation           | INFO     | Scanned (253, 107) -> 'D3 10 CAT 1 - L'
+2026-03-08 04:19:13,450 | automation           | INFO     | Scanned (760, 107) -> 'D10 10 CAT 1 - R'
+2026-03-08 04:19:13,850 | automation           | INFO     | Scanned (877, 277) -> 'E3 لا توجد مقاعد متاحة'
+2026-03-08 04:19:14,235 | automation           | INFO     | Scanned (877, 618) -> 'Accessibility - E Accessibility غير متاح'
+2026-03-08 04:19:14,427 | automation           | INFO     | Scanned (253, 789) -> 'B2 لا توجد مقاعد متاحة'
+2026-03-08 04:19:14,628 | automation           | INFO     | Scanned (760, 789) -> 'A2 لا توجد مقاعد متاحة'
+2026-03-08 04:19:15,556 | automation           | INFO     | Scanned (97, 448) -> 'C3 لا توجد مقاعد متاحة'
+2026-03-08 04:19:15,751 | automation           | INFO     | Scanned (916, 448) -> 'E5 لا توجد مقاعد متاحة'
+2026-03-08 04:19:15,948 | automation           | INFO     | Scanned (292, 64) -> 'D3 10 CAT 1 - L'
+2026-03-08 04:19:16,154 | automation           | INFO     | Scanned (721, 64) -> 'D9 10 CAT 1 - R'
+2026-03-08 04:19:16,351 | automation           | INFO     | Scanned (97, 405) -> 'C3 لا توجد مقاعد متاحة'
+2026-03-08 04:19:16,539 | automation           | INFO     | Scanned (916, 405) -> 'E5 لا توجد مقاعد متاحة'
+2026-03-08 04:19:16,724 | automation           | INFO     | Scanned (97, 490) -> 'C2 لا توجد مقاعد متاحة'
+2026-03-08 04:19:16,918 | automation           | INFO     | Scanned (916, 490) -> 'E6 لا توجد مقاعد متاحة'
+2026-03-08 04:19:17,118 | automation           | INFO     | Scanned (292, 832) -> 'B2 لا توجد مقاعد متاحة'
+2026-03-08 04:19:17,303 | automation           | INFO     | Scanned (721, 832) -> 'A3 لا توجد مقاعد متاحة'
+2026-03-08 04:19:17,491 | automation           | INFO     | Scanned (370, 21) -> 'D4 لا توجد مقاعد متاحة'
+2026-03-08 04:19:17,696 | automation           | INFO     | Scanned (643, 21) -> 'D8 لا توجد مقاعد متاحة'
+2026-03-08 04:19:17,895 | automation           | INFO     | Scanned (97, 363) -> 'C4 لا توجد مقاعد متاحة'
+2026-03-08 04:19:18,099 | automation           | INFO     | Scanned (916, 363) -> 'E4 لا توجد مقاعد متاحة'
+2026-03-08 04:19:18,301 | automation           | INFO     | Scanned (97, 533) -> 'C2 لا توجد مقاعد متاحة'
+2026-03-08 04:19:18,499 | automation           | INFO     | Scanned (916, 533) -> 'E6 لا توجد مقاعد متاحة'
+2026-03-08 04:19:18,874 | automation           | INFO     | Scanned (877, 235) -> 'E2 لا توجد مقاعد متاحة'
+2026-03-08 04:19:19,451 | automation           | INFO     | Scanned (97, 320) -> 'C4 لا توجد مقاعد متاحة'
+2026-03-08 04:19:19,650 | automation           | INFO     | Scanned (916, 320) -> 'E4 لا توجد مقاعد متاحة'
+2026-03-08 04:19:19,849 | automation           | INFO     | Scanned (97, 576) -> 'E4 لا توجد مقاعد متاحة'
+2026-03-08 04:19:20,056 | automation           | INFO     | Scanned (916, 576) -> 'E7 لا توجد مقاعد متاحة'
+2026-03-08 04:19:20,244 | automation           | INFO     | Scanned (331, 21) -> 'D4 لا توجد مقاعد متاحة'
+2026-03-08 04:19:20,429 | automation           | INFO     | Scanned (682, 21) -> 'D9 10 CAT 1 - R'
+2026-03-08 04:19:20,633 | automation           | INFO     | Scanned (214, 107) -> 'D2 10 CAT 1 - L'
+2026-03-08 04:19:20,831 | automation           | INFO     | Scanned (799, 107) -> 'D11 10 CAT 1 - R'
+2026-03-08 04:19:20,832 | automation           | INFO     | Found D11 at (799, 107), tooltip='D11 10 CAT 1 - R'
+2026-03-08 04:19:20,972 | automation           | INFO     | Clicked canvas at (799, 107)
+2026-03-08 04:19:22,986 | automation           | INFO     | No GA popup for section D11. Assuming zoomed into Reserved Seating.
+2026-03-08 04:19:22,987 | automation           | INFO     | Handling zoomed-in Reserved Seating for 1 tickets
+2026-03-08 04:19:22,987 | automation           | INFO     | Scanning for 1 individual reserved seats...
+2026-03-08 04:19:25,006 | automation           | INFO     | Attempting fast JS pixel scan for available seats...
+2026-03-08 04:19:25,110 | automation           | INFO     | JS pixel scan found 398 potential green seat clusters.
+2026-03-08 04:20:40,220 | automation           | INFO     | Pixel clustering insufficient. Falling back to spiral grid scan...
+2026-03-08 04:22:21,174 | automation           | WARNING  | Could only select 0/1 reserved seats in visible area.
+2026-03-08 04:22:22,048 | automation           | INFO     | Full page screenshot saved: screenshots/seatmap_691194750_1772936541.png
+2026-03-08 04:22:22,141 | monitor              | WARNING  | Booking FAILURE: ADD_TO_CART_FAILED (total failures: 1)
+2026-03-08 04:22:22,546 | aiogram.event        | INFO     | Update id=648318867 is handled. Duration 266508 ms by bot id=8785687069
+2026-03-08 04:30:20,990 | aiogram.dispatcher   | INFO     | Polling stopped
+2026-03-08 04:30:20,991 | bot                  | INFO     | Shutting down...
+2026-03-08 04:30:20,991 | browser              | INFO     | Shutting down browser pool...
+2026-03-08 04:30:21,151 | aiogram.dispatcher   | INFO     | Polling stopped for bot @Tzkartybook_bot id=8785687069 - 'Tzaker'
+2026-03-08 04:30:21,309 | bot                  | INFO     | Bot stopped by user
+2026-03-08 04:30:21,366 | asyncio              | ERROR    | Task was destroyed but it is pending!
+task: <Task cancelling name='Task-1' coro=<main() done, defined at C:\Users\yussef makhlouf\Downloads\Ticket-Booker-Bot\Ticket-Booker-Bot\main.py:69> wait_for=<_GatheringFuture pending cb=[Task.task_wakeup()]> cb=[gather.<locals>._done_callback() at C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.3312.0_x64__qbz5n2kfra8p0\Lib\asyncio\tasks.py:820]>
+2026-03-08 04:30:25,840 | root                 | INFO     | Logging initialized [level=INFO]
+2026-03-08 04:30:26,112 | bot                  | INFO     | Starting bot polling...
+2026-03-08 04:30:26,112 | bot                  | INFO     | ══════════════════════════════════════════════════
+2026-03-08 04:30:26,113 | bot                  | INFO     |   🎫 Webook Pro Bot Starting...
+2026-03-08 04:30:26,113 | bot                  | INFO     | ══════════════════════════════════════════════════
+2026-03-08 04:30:26,116 | bot                  | INFO     | Database initialized at C:\Users\yussef makhlouf\Downloads\Ticket-Booker-Bot\Ticket-Booker-Bot\data/webook_pro.db
+2026-03-08 04:30:26,117 | browser              | INFO     | Initializing browser pool (max=5)...
+2026-03-08 04:30:26,752 | browser              | INFO     | Browser pool ready: 2 pre-warmed, 5 max
+2026-03-08 04:30:26,752 | bot                  | INFO     | Bot startup complete!
+2026-03-08 04:30:26,752 | aiogram.dispatcher   | INFO     | Start polling
+2026-03-08 04:30:27,023 | aiogram.dispatcher   | INFO     | Run polling for bot @Tzkartybook_bot id=8785687069 - 'Tzaker'
+2026-03-08 04:30:35,625 | automation           | INFO     | Navigating to: https://webook.com/ar/events/rsl-al-ettifaq-vs-al-riyadh-123554
+2026-03-08 04:30:41,391 | automation           | INFO     | Dismissed popup: button:has-text("قبول الكل")
+2026-03-08 04:30:42,413 | automation           | INFO     | Using cached event data for 123554
+2026-03-08 04:30:42,422 | booking              | INFO     | Booking prep done in 6.80s: event='دوري روشن ٢٥/٢٦ - الاتفاق ضد الرياض', logged_in=False
+2026-03-08 04:30:42,611 | aiogram.event        | INFO     | Update id=648318868 is handled. Duration 7242 ms by bot id=8785687069
+2026-03-08 04:30:45,388 | aiogram.event        | INFO     | Update id=648318869 is handled. Duration 171 ms by bot id=8785687069
+2026-03-08 04:30:51,030 | aiogram.event        | INFO     | Update id=648318870 is handled. Duration 99 ms by bot id=8785687069
+2026-03-08 04:30:54,295 | automation           | INFO     | Attempting login for yusse***...
+2026-03-08 04:31:08,344 | automation           | INFO     | Login submitted, waiting for redirect...
+2026-03-08 04:31:11,061 | automation           | INFO     | Login successful - redirected to: https://webook.com/ar
+2026-03-08 04:31:11,286 | aiogram.event        | INFO     | Update id=648318871 is handled. Duration 17162 ms by bot id=8785687069
+2026-03-08 04:31:13,612 | aiogram.event        | INFO     | Update id=648318872 is handled. Duration 155 ms by bot id=8785687069
+2026-03-08 04:31:15,003 | automation           | INFO     | Navigating to: https://webook.com/ar/events/rsl-al-ettifaq-vs-al-riyadh-123554/book
+2026-03-08 04:31:20,040 | automation           | INFO     | Waiting for seat map to load...
+2026-03-08 04:31:29,325 | automation           | INFO     | Found SeatCloud frame: https://chart.seatcloud.com/v1.0/index.html
+2026-03-08 04:31:34,393 | automation           | INFO     | Canvas ready: 974x853
+2026-03-08 04:31:34,818 | automation           | INFO     | SeatCloud screenshot saved: screenshots/seatmap_691194750_1772937094.png
+2026-03-08 04:31:34,818 | automation           | INFO     | Scanning all sections with availability on 974x853 canvas...
+2026-03-08 04:31:35,820 | automation           | INFO     | Section D1: AVAILABLE - D1 10 CAT 1 - L
+2026-03-08 04:31:36,214 | automation           | INFO     | Section D2: AVAILABLE - D2 10 CAT 1 - L
+2026-03-08 04:31:36,620 | automation           | INFO     | Section D3: AVAILABLE - D3 10 CAT 1 - L
+2026-03-08 04:31:37,056 | automation           | INFO     | Section D4: UNAVAILABLE - D4 لا توجد مقاعد متاحة
+2026-03-08 04:31:37,469 | automation           | INFO     | Section D5: UNAVAILABLE - D5 لا توجد مقاعد متاحة
+2026-03-08 04:31:37,875 | automation           | INFO     | Section D6: UNAVAILABLE - D6 لا توجد مقاعد متاحة
+2026-03-08 04:31:38,247 | automation           | INFO     | Section D7: UNAVAILABLE - D7 لا توجد مقاعد متاحة
+2026-03-08 04:31:38,639 | automation           | INFO     | Section D8: UNAVAILABLE - D8 لا توجد مقاعد متاحة
+2026-03-08 04:31:39,014 | automation           | INFO     | Section D9: AVAILABLE - D9 10 CAT 1 - R
+2026-03-08 04:31:39,404 | automation           | INFO     | Section D10: AVAILABLE - D10 10 CAT 1 - R
+2026-03-08 04:31:39,777 | automation           | INFO     | Section D11: AVAILABLE - D11 10 CAT 1 - R
+2026-03-08 04:31:46,912 | automation           | INFO     | Section C7: UNAVAILABLE - C7 لا توجد مقاعد متاحة
+2026-03-08 04:31:51,922 | automation           | INFO     | Section E1: UNAVAILABLE - E1 لا توجد مقاعد متاحة
+2026-03-08 04:32:09,951 | automation           | INFO     | Section C6: UNAVAILABLE - C6 لا توجد مقاعد متاحة
+2026-03-08 04:32:15,241 | automation           | INFO     | Section E2: UNAVAILABLE - E2 لا توجد مقاعد متاحة
+2026-03-08 04:32:15,840 | automation           | INFO     | Section C5: UNAVAILABLE - C5 لا توجد مقاعد متاحة
+2026-03-08 04:32:20,820 | automation           | INFO     | Section E3: UNAVAILABLE - E3 لا توجد مقاعد متاحة
+2026-03-08 04:32:26,895 | automation           | INFO     | Section C4: UNAVAILABLE - C4 لا توجد مقاعد متاحة
+2026-03-08 04:32:36,575 | automation           | INFO     | Found 18 unique sections
+2026-03-08 04:32:41,055 | automation           | INFO     | Seat analysis: 0 sections found via canvas in 4.48s
+2026-03-08 04:32:41,810 | aiogram.event        | INFO     | Update id=648318873 is handled. Duration 87187 ms by bot id=8785687069
+2026-03-08 04:32:50,009 | automation           | INFO     | Navigating to: https://webook.com/ar/events/rsl-al-ettifaq-vs-al-riyadh-123554/book
+2026-03-08 04:32:55,222 | automation           | INFO     | Selecting team: الاتفاق
+2026-03-08 04:32:55,615 | automation           | INFO     | Waiting for seat map to load...
+2026-03-08 04:32:56,194 | automation           | INFO     | Found SeatCloud frame: https://chart.seatcloud.com/v1.0/index.html
+2026-03-08 04:33:01,890 | automation           | INFO     | Canvas ready: 974x853
+2026-03-08 04:33:01,890 | automation           | INFO     | Searching for section: D11
+2026-03-08 04:33:01,891 | automation           | INFO     | Scanning canvas 974x853 with grid 25x20 for section D11...
+2026-03-08 04:33:31,464 | automation           | INFO     | Scanned (487, 746) -> 'VIP لا توجد مقاعد متاحة'
+2026-03-08 04:33:31,660 | automation           | INFO     | Scanned (526, 746) -> 'VIP لا توجد مقاعد متاحة'
+2026-03-08 04:33:33,098 | automation           | INFO     | Scanned (448, 746) -> 'VIP لا توجد مقاعد متاحة'
+2026-03-08 04:33:33,315 | automation           | INFO     | Scanned (565, 746) -> 'A4 لا توجد مقاعد متاحة'
+2026-03-08 04:33:34,765 | automation           | INFO     | Scanned (409, 746) -> 'B1 لا توجد مقاعد متاحة'
+2026-03-08 04:33:34,977 | automation           | INFO     | Scanned (604, 746) -> 'A4 لا توجد مقاعد متاحة'
+2026-03-08 04:33:39,144 | automation           | INFO     | Scanned (370, 746) -> 'B1 لا توجد مقاعد متاحة'
+2026-03-08 04:33:39,328 | automation           | INFO     | Scanned (643, 746) -> 'A4 لا توجد مقاعد متاحة'
+2026-03-08 04:33:39,733 | automation           | INFO     | Scanned (526, 107) -> 'D7 لا توجد مقاعد متاحة'
+2026-03-08 04:33:39,921 | automation           | INFO     | Scanned (487, 789) -> 'VVIP لا توجد مقاعد متاحة'
+2026-03-08 04:33:40,108 | automation           | INFO     | Scanned (526, 789) -> 'VVIP لا توجد مقاعد متاحة'
+2026-03-08 04:33:41,071 | automation           | INFO     | Scanned (448, 107) -> 'D5 لا توجد مقاعد متاحة'
+2026-03-08 04:33:41,254 | automation           | INFO     | Scanned (565, 107) -> 'D7 لا توجد مقاعد متاحة'
+2026-03-08 04:33:42,202 | automation           | INFO     | Scanned (448, 789) -> 'VVIP لا توجد مقاعد متاحة'
+2026-03-08 04:33:42,387 | automation           | INFO     | Scanned (565, 789) -> 'A4 لا توجد مقاعد متاحة'
+2026-03-08 04:33:43,746 | automation           | INFO     | Scanned (331, 746) -> 'B1 لا توجد مقاعد متاحة'
+2026-03-08 04:33:43,944 | automation           | INFO     | Scanned (682, 746) -> 'A3 لا توجد مقاعد متاحة'
+2026-03-08 04:33:44,146 | automation           | INFO     | Scanned (409, 107) -> 'D5 لا توجد مقاعد متاحة'
+2026-03-08 04:33:44,351 | automation           | INFO     | Scanned (604, 107) -> 'D8 لا توجد مقاعد متاحة'
+2026-03-08 04:33:44,537 | automation           | INFO     | Scanned (409, 789) -> 'B1 لا توجد مقاعد متاحة'
+2026-03-08 04:33:44,740 | automation           | INFO     | Scanned (604, 789) -> 'A4 لا توجد مقاعد متاحة'
+2026-03-08 04:33:46,757 | automation           | INFO     | Scanned (370, 107) -> 'D4 لا توجد مقاعد متاحة'
+2026-03-08 04:33:46,941 | automation           | INFO     | Scanned (643, 107) -> 'D8 لا توجد مقاعد متاحة'
+2026-03-08 04:33:47,880 | automation           | INFO     | Scanned (370, 789) -> 'B1 لا توجد مقاعد متاحة'
+2026-03-08 04:33:48,081 | automation           | INFO     | Scanned (643, 789) -> 'A4 لا توجد مقاعد متاحة'
+2026-03-08 04:33:49,448 | automation           | INFO     | Scanned (292, 746) -> 'B2 لا توجد مقاعد متاحة'
+2026-03-08 04:33:49,646 | automation           | INFO     | Scanned (721, 746) -> 'A3 لا توجد مقاعد متاحة'
+2026-03-08 04:33:49,816 | automation           | INFO     | Scanned (487, 64) -> 'D6 لا توجد مقاعد متاحة'
+2026-03-08 04:33:50,000 | automation           | INFO     | Scanned (526, 64) -> 'D7 لا توجد مقاعد متاحة'
+2026-03-08 04:33:51,677 | automation           | INFO     | Scanned (487, 832) -> 'VIP Platform لا توجد مقاعد متاحة'
+2026-03-08 04:33:51,863 | automation           | INFO     | Scanned (526, 832) -> 'VIP Platform لا توجد مقاعد متاحة'
+2026-03-08 04:33:52,062 | automation           | INFO     | Scanned (448, 64) -> 'D5 لا توجد مقاعد متاحة'
+2026-03-08 04:33:52,238 | automation           | INFO     | Scanned (565, 64) -> 'D7 لا توجد مقاعد متاحة'
+2026-03-08 04:33:52,421 | automation           | INFO     | Scanned (448, 832) -> 'VIP Platform لا توجد مقاعد متاحة'
+2026-03-08 04:33:52,610 | automation           | INFO     | Scanned (565, 832) -> 'A4 لا توجد مقاعد متاحة'
+2026-03-08 04:33:52,797 | automation           | INFO     | Scanned (331, 107) -> 'D4 لا توجد مقاعد متاحة'
+2026-03-08 04:33:52,997 | automation           | INFO     | Scanned (682, 107) -> 'D9 10 CAT 1 - R'
+2026-03-08 04:33:53,184 | automation           | INFO     | Scanned (331, 789) -> 'B1 لا توجد مقاعد متاحة'
+2026-03-08 04:33:53,370 | automation           | INFO     | Scanned (682, 789) -> 'A3 لا توجد مقاعد متاحة'
+2026-03-08 04:33:53,558 | automation           | INFO     | Scanned (409, 64) -> 'D5 لا توجد مقاعد متاحة'
+2026-03-08 04:33:53,745 | automation           | INFO     | Scanned (604, 64) -> 'D8 لا توجد مقاعد متاحة'
+2026-03-08 04:33:53,916 | automation           | INFO     | Scanned (409, 832) -> 'B1 لا توجد مقاعد متاحة'
+2026-03-08 04:33:54,102 | automation           | INFO     | Scanned (604, 832) -> 'A4 لا توجد مقاعد متاحة'
+2026-03-08 04:33:55,232 | automation           | INFO     | Scanned (877, 448) -> 'E5 لا توجد مقاعد متاحة'
+2026-03-08 04:33:55,961 | automation           | INFO     | Scanned (877, 405) -> 'E5 لا توجد مقاعد متاحة'
+2026-03-08 04:33:56,319 | automation           | INFO     | Scanned (877, 490) -> 'E6 لا توجد مقاعد متاحة'
+2026-03-08 04:33:56,505 | automation           | INFO     | Scanned (253, 746) -> 'B2 لا توجد مقاعد متاحة'
+2026-03-08 04:33:56,693 | automation           | INFO     | Scanned (760, 746) -> 'A2 لا توجد مقاعد متاحة'
+2026-03-08 04:33:57,697 | automation           | INFO     | Scanned (370, 64) -> 'D4 لا توجد مقاعد متاحة'
+2026-03-08 04:33:57,896 | automation           | INFO     | Scanned (643, 64) -> 'D8 لا توجد مقاعد متاحة'
+2026-03-08 04:33:58,097 | automation           | INFO     | Scanned (370, 832) -> 'B1 لا توجد مقاعد متاحة'
+2026-03-08 04:33:58,297 | automation           | INFO     | Scanned (643, 832) -> 'A4 لا توجد مقاعد متاحة'
+2026-03-08 04:33:58,486 | automation           | INFO     | Scanned (292, 107) -> 'D3 10 CAT 1 - L'
+2026-03-08 04:33:58,674 | automation           | INFO     | Scanned (721, 107) -> 'D9 10 CAT 1 - R'
+2026-03-08 04:33:59,062 | automation           | INFO     | Scanned (877, 363) -> 'E4 لا توجد مقاعد متاحة'
+2026-03-08 04:33:59,444 | automation           | INFO     | Scanned (877, 533) -> 'E6 لا توجد مقاعد متاحة'
+2026-03-08 04:33:59,645 | automation           | INFO     | Scanned (292, 789) -> 'B2 لا توجد مقاعد متاحة'
+2026-03-08 04:33:59,844 | automation           | INFO     | Scanned (721, 789) -> 'A3 لا توجد مقاعد متاحة'
+2026-03-08 04:34:01,046 | automation           | INFO     | Scanned (877, 320) -> 'E4 لا توجد مقاعد متاحة'
+2026-03-08 04:34:01,449 | automation           | INFO     | Scanned (877, 576) -> 'Accessibility - E Accessibility غير متاح'
+2026-03-08 04:34:01,637 | automation           | INFO     | Scanned (487, 21) -> 'D6 لا توجد مقاعد متاحة'
+2026-03-08 04:34:01,822 | automation           | INFO     | Scanned (526, 21) -> 'D7 لا توجد مقاعد متاحة'
+2026-03-08 04:34:02,009 | automation           | INFO     | Scanned (331, 64) -> 'D4 لا توجد مقاعد متاحة'
+2026-03-08 04:34:02,199 | automation           | INFO     | Scanned (682, 64) -> 'D9 10 CAT 1 - R'
+2026-03-08 04:34:02,398 | automation           | INFO     | Scanned (331, 832) -> 'B1 لا توجد مقاعد متاحة'
+2026-03-08 04:34:02,591 | automation           | INFO     | Scanned (682, 832) -> 'A3 لا توجد مقاعد متاحة'
+2026-03-08 04:34:02,775 | automation           | INFO     | Scanned (448, 21) -> 'D5 لا توجد مقاعد متاحة'
+2026-03-08 04:34:02,975 | automation           | INFO     | Scanned (565, 21) -> 'D7 لا توجد مقاعد متاحة'
+2026-03-08 04:34:03,539 | automation           | INFO     | Scanned (214, 746) -> 'B3 لا توجد مقاعد متاحة'
+2026-03-08 04:34:03,724 | automation           | INFO     | Scanned (799, 746) -> 'A2 لا توجد مقاعد متاحة'
+2026-03-08 04:34:03,906 | automation           | INFO     | Scanned (409, 21) -> 'D5 لا توجد مقاعد متاحة'
+2026-03-08 04:34:04,081 | automation           | INFO     | Scanned (604, 21) -> 'D8 لا توجد مقاعد متاحة'
+2026-03-08 04:34:04,267 | automation           | INFO     | Scanned (253, 107) -> 'D3 10 CAT 1 - L'
+2026-03-08 04:34:04,455 | automation           | INFO     | Scanned (760, 107) -> 'D10 10 CAT 1 - R'
+2026-03-08 04:34:04,832 | automation           | INFO     | Scanned (877, 277) -> 'E3 لا توجد مقاعد متاحة'
+2026-03-08 04:34:05,219 | automation           | INFO     | Scanned (877, 618) -> 'Accessibility - E Accessibility غير متاح'
+2026-03-08 04:34:05,408 | automation           | INFO     | Scanned (253, 789) -> 'B2 لا توجد مقاعد متاحة'
+2026-03-08 04:34:05,612 | automation           | INFO     | Scanned (760, 789) -> 'A2 لا توجد مقاعد متاحة'
+2026-03-08 04:34:06,577 | automation           | INFO     | Scanned (97, 448) -> 'C3 لا توجد مقاعد متاحة'
+2026-03-08 04:34:06,760 | automation           | INFO     | Scanned (916, 448) -> 'E5 لا توجد مقاعد متاحة'
+2026-03-08 04:34:06,935 | automation           | INFO     | Scanned (292, 64) -> 'D3 10 CAT 1 - L'
+2026-03-08 04:34:07,122 | automation           | INFO     | Scanned (721, 64) -> 'D9 10 CAT 1 - R'
+2026-03-08 04:34:07,306 | automation           | INFO     | Scanned (97, 405) -> 'C3 لا توجد مقاعد متاحة'
+2026-03-08 04:34:07,494 | automation           | INFO     | Scanned (916, 405) -> 'E5 لا توجد مقاعد متاحة'
+2026-03-08 04:34:07,679 | automation           | INFO     | Scanned (97, 490) -> 'C2 لا توجد مقاعد متاحة'
+2026-03-08 04:34:07,880 | automation           | INFO     | Scanned (916, 490) -> 'E6 لا توجد مقاعد متاحة'
+2026-03-08 04:34:08,047 | automation           | INFO     | Scanned (292, 832) -> 'B2 لا توجد مقاعد متاحة'
+2026-03-08 04:34:08,222 | automation           | INFO     | Scanned (721, 832) -> 'A3 لا توجد مقاعد متاحة'
+2026-03-08 04:34:08,401 | automation           | INFO     | Scanned (370, 21) -> 'D4 لا توجد مقاعد متاحة'
+2026-03-08 04:34:08,591 | automation           | INFO     | Scanned (643, 21) -> 'D8 لا توجد مقاعد متاحة'
+2026-03-08 04:34:08,777 | automation           | INFO     | Scanned (97, 363) -> 'C4 لا توجد مقاعد متاحة'
+2026-03-08 04:34:08,978 | automation           | INFO     | Scanned (916, 363) -> 'E4 لا توجد مقاعد متاحة'
+2026-03-08 04:34:09,181 | automation           | INFO     | Scanned (97, 533) -> 'C2 لا توجد مقاعد متاحة'
+2026-03-08 04:34:09,381 | automation           | INFO     | Scanned (916, 533) -> 'E6 لا توجد مقاعد متاحة'
+2026-03-08 04:34:09,737 | automation           | INFO     | Scanned (877, 235) -> 'E2 لا توجد مقاعد متاحة'
+2026-03-08 04:34:10,329 | automation           | INFO     | Scanned (97, 320) -> 'C4 لا توجد مقاعد متاحة'
+2026-03-08 04:34:10,525 | automation           | INFO     | Scanned (916, 320) -> 'E4 لا توجد مقاعد متاحة'
+2026-03-08 04:34:10,717 | automation           | INFO     | Scanned (97, 576) -> 'E4 لا توجد مقاعد متاحة'
+2026-03-08 04:34:10,912 | automation           | INFO     | Scanned (916, 576) -> 'E7 لا توجد مقاعد متاحة'
+2026-03-08 04:34:11,086 | automation           | INFO     | Scanned (331, 21) -> 'D4 لا توجد مقاعد متاحة'
+2026-03-08 04:34:11,273 | automation           | INFO     | Scanned (682, 21) -> 'D9 10 CAT 1 - R'
+2026-03-08 04:34:11,458 | automation           | INFO     | Scanned (214, 107) -> 'D2 10 CAT 1 - L'
+2026-03-08 04:34:11,659 | automation           | INFO     | Scanned (799, 107) -> 'D11 10 CAT 1 - R'
+2026-03-08 04:34:11,660 | automation           | INFO     | Found D11 at (799, 107), tooltip='D11 10 CAT 1 - R'
+2026-03-08 04:34:11,686 | automation           | INFO     | Clicked canvas at (799, 107)
+2026-03-08 04:34:13,695 | automation           | INFO     | No GA popup for section D11. Assuming zoomed into Reserved Seating.
+2026-03-08 04:34:13,696 | automation           | INFO     | Handling zoomed-in Reserved Seating for 1 tickets
+2026-03-08 04:34:13,697 | automation           | INFO     | Scanning for 1 individual reserved seats...
+2026-03-08 04:34:15,706 | automation           | INFO     | Attempting fast JS pixel scan for available seats...
+2026-03-08 04:34:15,780 | automation           | INFO     | JS pixel scan found 262 potential green seat clusters.
+2026-03-08 04:34:15,780 | automation           | INFO     | Attempting to click on 262 potential seat locations...
+2026-03-08 04:34:16,811 | automation           | INFO     | Clicked at (500, 433) - no clear response, might be sub-block
+2026-03-08 04:34:17,862 | automation           | INFO     | Clicked at (466, 420) - no clear response, might be sub-block
+2026-03-08 04:34:18,956 | automation           | INFO     | Clicked at (469, 456) - no clear response, might be sub-block
+2026-03-08 04:34:19,988 | automation           | INFO     | Clicked at (506, 397) - no clear response, might be sub-block
+2026-03-08 04:34:21,002 | automation           | INFO     | Clicked at (471, 384) - no clear response, might be sub-block
+2026-03-08 04:34:22,009 | automation           | INFO     | Clicked at (504, 470) - no clear response, might be sub-block
+2026-03-08 04:34:23,257 | automation           | INFO     | Successfully clicked seat 1/1 at (534, 448)
+2026-03-08 04:34:23,257 | automation           | INFO     | Successfully selected 1 reserved seats.
+2026-03-08 04:34:23,425 | automation           | INFO     | SeatCloud screenshot saved: screenshots/seatmap_691194750_1772937263.png
+2026-03-08 04:34:30,585 | automation           | INFO     | Clicked checkout: button:has-text("الدفع")
+2026-03-08 04:34:30,586 | automation           | INFO     | Checkout URL: https://webook.com/ar/events/rsl-al-ettifaq-vs-al-riyadh-123554/book
+2026-03-08 04:34:30,720 | monitor              | INFO     | Booking SUCCESS in 100.58s (total: 1)
+2026-03-08 04:34:31,443 | aiogram.event        | INFO     | Update id=648318874 is handled. Duration 101571 ms by bot id=8785687069
